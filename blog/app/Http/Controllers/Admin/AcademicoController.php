@@ -134,6 +134,10 @@ class AcademicoController extends Controller
         return back()->with('info', 'Eliminado correctamente');
     }
 
+    public function metdoDePrueba(){
+        
+    }
+
     public function check($rut) {
 
         $cleanedRut = $this->clean($rut);
