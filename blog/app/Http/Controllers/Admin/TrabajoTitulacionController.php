@@ -96,7 +96,19 @@ class TrabajoTitulacionController extends Controller
      */
     public function show($id)
     {
+        $trabajo_titulacion = TrabajoTitulacion::find($id);
+        $actividad_titulacions = ActividadTitulacion::orderBy('nombre', 'ASC')
+        ->pluck('nombre', 'id','comision','cant_estudiante');
 
+        $academicos = Academico::orderBy('nombre', 'ASC')
+        ->pluck('nombre','id');
+
+        $estudiantes = Estudiante::orderBy('nombre','ASC')
+        ->pluck('nombre', 'id',);
+
+        $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
+        ->pluck('nombre','id');
+        return view('admin.trabajo_titulacions.show', compact('trabajo_titulacion','actividad_titulacions','academicos','estudiantes','organizaciones'));
     }
 
     /**
@@ -146,6 +158,6 @@ class TrabajoTitulacionController extends Controller
     //esto quedara como el anular en caso de problemas de redireccion
     public function destroy($id)
     {
-        //return view('trabajo_titulacions.delete');
+
     }
 }

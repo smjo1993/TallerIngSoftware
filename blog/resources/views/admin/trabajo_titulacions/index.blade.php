@@ -118,6 +118,11 @@ Listado de Trabajos de Titulación
                                     autorizar
                                 </a>
                             </td>
+                            <td width="10px">
+                                <a href="{{ route('trabajo_titulacions.destroy', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                    anular
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
