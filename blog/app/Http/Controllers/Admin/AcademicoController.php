@@ -114,9 +114,7 @@ class AcademicoController extends Controller
         $academico = Academico::find($id);
 
         $academico->fill($request->all())->save();
-
- 
-
+        
         return redirect()->route('academicos.edit', $academico->id)
         ->with('info', 'Academico actualizada con exito');
     }
@@ -132,10 +130,6 @@ class AcademicoController extends Controller
         $academico = Academico::find($id)->delete();
 
         return back()->with('info', 'Eliminado correctamente');
-    }
-
-    public function metdoDePrueba(){
-        
     }
 
     public function check($rut) {

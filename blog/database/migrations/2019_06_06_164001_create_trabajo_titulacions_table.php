@@ -18,10 +18,12 @@ class CreateTrabajoTitulacionsTable extends Migration
             $table->string('nombre');
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
+            $table->date('fecha_examen_titulo')->nullable();
             $table->enum('estado' , ['ACEPTADA' , 'INGRESADA', 'FINALIZADA'])->default('INGRESADA');
             $table->integer('id_actividad')->unsigned();
-            $table->integer('id_organizacion')->unsigned();
+            $table->integer('id_organizacion')->unsigned()->nullable();
             $table->integer('id_academico')->unsigned();
+            $table->double('nota')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('id_actividad')->references('id')->on('actividad_titulacions')

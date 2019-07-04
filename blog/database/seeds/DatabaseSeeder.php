@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
          $this->call(CarrerasTablesSeeder::class);
          $this->call(EstudiantesTablesSeeder::class);
          $this->call(Organizacion_externasTablesSeeder::class);
-         //$this->call(Trabajo_titulacionsTablesSeeder::class);
+         $this->call(Trabajo_titulacionsTablesSeeder::class);
          
     }
 }

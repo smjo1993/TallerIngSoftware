@@ -109,13 +109,6 @@ Listado de Trabajos de Titulación
                             <td>{{ $trabajo_titulacion->id }}</td>
                             <td>{{ $trabajo_titulacion->nombre }}</td>
                             <td>{{ $trabajo_titulacion->estado }}</td>
-                            <td width="10px">
-                            <td width="10px">
-                                <a href="{{ route('trabajo_titulacions.edit', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
-                                    anular
-                                </a>
-                            </td>
-                            </td>
                         </tr>
                         @endforeach
                     </tbody>

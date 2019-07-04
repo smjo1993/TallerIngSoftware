@@ -89,9 +89,11 @@ class TrabajoTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //aca se creara la comision(aca haces los metodos de redireccion puga)
     public function edit($id)
     {
-
+        //return view('trabajo_titulacions.edit');
     }
 
     /**
@@ -101,6 +103,7 @@ class TrabajoTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //aca haces que la comision se agregue al trabajo puga
     public function update(TrabajoTitulacionUpdateRequest $request, $id)
     {
 
@@ -112,19 +115,9 @@ class TrabajoTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    //esto quedara como el anular en caso de problemas de redireccion
+    public function destroy()
     {
-
-    }
-
-    public function anular()
-    {
-        //return view('trabajo_titulacions.anular');
-    }
-
-    public function seleccionaractividad()
-    {
-        //return redirect()->route('trabajo_titulacions.seleccionaractividad');
-        //return view('trabajo_titulacions.seleccionaractividad');
+        return view('trabajo_titulacions.edit');
     }
 }
