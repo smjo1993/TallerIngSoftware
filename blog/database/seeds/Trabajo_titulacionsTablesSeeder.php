@@ -40,5 +40,77 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'id_actividad' => '2',
             'id_academico' => '2',
         ]);
+        App\TrabajoTitulacion::create([
+            'id' => '4',
+            'nombre' => 'trabajo4',
+            'fecha_inicio' => '2017-10-22',
+            'fecha_termino' => '2018-06-22',
+            'estado' => 'INGRESADA',
+            'id_actividad' => '1',
+            'id_academico' => '3',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '5',
+            'nombre' => 'trabajo5',
+            'fecha_inicio' => '2015-10-22',
+            'fecha_termino' => '2016-06-22',
+            'estado' => 'ACEPTADA',
+            'id_actividad' => '3',
+            'id_academico' => '3',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '6',
+            'nombre' => 'trabajo6',
+            'fecha_inicio' => '2015-10-06',
+            'fecha_termino' => '2016-06-06',
+            'estado' => 'INGRESADA',
+            'id_actividad' => '1',
+            'id_academico' => '6',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '7',
+            'nombre' => 'trabajo7',
+            'fecha_inicio' => '2015-10-22',
+            'fecha_termino' => '2016-06-22',
+            'estado' => 'ACEPTADA',
+            'id_actividad' => '1',
+            'id_academico' => '2',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '8',
+            'nombre' => 'trabajo8',
+            'fecha_inicio' => '2015-10-22',
+            'fecha_termino' => '2016-06-22',
+            'estado' => 'INGRESADA',
+            'id_actividad' => '1',
+            'id_academico' => '1',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '9',
+            'nombre' => 'trabajo9',
+            'fecha_inicio' => '2015-10-22',
+            'fecha_termino' => '2016-06-22',
+            'estado' => 'INGRESADA',
+            'id_actividad' => '2',
+            'id_academico' => '2',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '10',
+            'nombre' => 'trabajo10',
+            'fecha_inicio' => '2015-10-22',
+            'fecha_termino' => '2016-06-22',
+            'estado' => 'ACEPTADA',
+            'id_actividad' => '1',
+            'id_academico' => '2',
+        ]);
+        App\TrabajoTitulacion::create([
+            'id' => '11',
+            'nombre' => 'trabajo11',
+            'fecha_inicio' => '2015-10-22',
+            'fecha_termino' => '2016-06-22',
+            'estado' => 'ACEPTADA',
+            'id_actividad' => '2',
+            'id_academico' => '1',
+        ]);
     }
 }

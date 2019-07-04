@@ -24,7 +24,7 @@ class TrabajoTitulacionStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //'nombre'   => 'required|alpha',
+            'nombre'   => 'required',
             //'duracion' => 'required|integer|Min:1',
             //'comision' => 'required|in:SI,NO',
             //'cant_estudiante'=> 'required|integer|Min:1',

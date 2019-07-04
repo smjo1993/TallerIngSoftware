@@ -99,16 +99,25 @@ Listado de Trabajos de Titulación
                             <th width="10px">ID</th>
                             <th width="10px">Nombre</th>
                             <th width="10px">Estado</th>
-                            <th width="10px">Profesor Guia</th>
+                            <th width="10px">Fecha inicio</th>
+                            <th width="10px">Fecha Termino</th>
                             <th colspan="3">&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($trabajo_titulacions as $trabajo_titulacion)
                         <tr>
+
                             <td>{{ $trabajo_titulacion->id }}</td>
                             <td>{{ $trabajo_titulacion->nombre }}</td>
                             <td>{{ $trabajo_titulacion->estado }}</td>
+                            <td>{{ $trabajo_titulacion->fecha_inicio }}</td>
+                            <td>{{ $trabajo_titulacion->fecha_termino }}</td>
+                            <td width="10px">
+                                <a href="{{ route('trabajo_titulacions.edit', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                    autorizar
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

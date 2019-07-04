@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Academico extends Model
 {
     protected $fillable = [
-        'rut', 'nombre','apellido_paterno', 'apellido_materno'
+        'rut', 'nombre','apellido_paterno', 'apellido_materno', 'email'
     ];
 
     public function trabajos()

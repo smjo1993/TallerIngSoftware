@@ -15,7 +15,7 @@ class CreateTrabajoTitulacionsTable extends Migration
     {
         Schema::create('trabajo_titulacions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombre', 128);
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
             $table->date('fecha_examen_titulo')->nullable();
@@ -24,6 +24,7 @@ class CreateTrabajoTitulacionsTable extends Migration
             $table->integer('id_organizacion')->unsigned()->nullable();
             $table->integer('id_academico')->unsigned();
             $table->double('nota')->unsigned()->nullable();
+            $table->integer('semestre')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('id_actividad')->references('id')->on('actividad_titulacions')

@@ -25,10 +25,10 @@ class TrabajoTitulacionUpdateRequest extends FormRequest
     {
         return [
             
-            'nombre'   => 'required|alpha',
-            'duracion' => 'required|integer|Min:1',
-            'comision' => 'required|in:SI,NO',
-            'cant_estudiante'             => 'required|integer|Min:1',
+            'nombre'   => 'required',
+            //'duracion' => 'required|integer|Min:1',
+            //'comision' => 'required|in:SI,NO',
+            //'cant_estudiante'             => 'required|integer|Min:1',
         ];
     }
 }

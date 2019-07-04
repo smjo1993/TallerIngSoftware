@@ -88,8 +88,8 @@
                             </button>
                         </div>
                     {{ Form::close() }}
-                    </h1>
-                    &nbsp
+                </h1>
+                &nbsp
                 Lista de Estudiantes
                     <a href="{{ route('estudiantes.create') }}" class="btn btn-sm btn-primary pull-right">
                         Crear

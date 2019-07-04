@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use App\TrabajoTitulacion;
 use App\ActividadTitulacion;
 use App\Academico;
+use App\Estudiante;
+use App\OrganizacionExterna;
 class TrabajoTitulacionController extends Controller
 {
     /**
@@ -25,10 +27,7 @@ class TrabajoTitulacionController extends Controller
         //$nombre = $request->get('nombre');
         //$id    = $request->get('id');
       
-        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
-        ->paginate(10);
-        
-        
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')->paginate(10);
         return view('admin.trabajo_titulacions.index', compact('trabajo_titulacions'));
     }
 
@@ -43,11 +42,17 @@ class TrabajoTitulacionController extends Controller
         ->pluck('nombre', 'id','comision','cant_estudiante');
 
         $academicos = Academico::orderBy('nombre', 'ASC')
-        ->pluck('nombre','rut');
+        ->pluck('nombre','id');
 
-        $var = 5;
+        $estudiantes = Estudiante::orderBy('nombre','ASC')
+        ->pluck('nombre', 'id',);
+
+        $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
+        ->pluck('nombre','id');
+
+        //$var = 5;
         //return redirect()->route('trabajo_titulacions.seleccionaractividad');
-        return view('admin.trabajo_titulacions.create', compact('actividad_titulacions','academicos','var'));
+        return view('admin.trabajo_titulacions.create', compact('actividad_titulacions','academicos','estudiantes','organizaciones'));
     }
 
     /**
@@ -60,13 +65,24 @@ class TrabajoTitulacionController extends Controller
     {
         $fecha_inicio = $request->get('fecha_inicio');
         $fecha_termino = $request->get('fecha_termino');
+        //$org_externa = $request->get('id_actividad')->organizacion($id_actividad);
+
+        //App\OrganizacionExterna::create([
+            //'id' => '1',
+            //  'nombre_tutor' => 'Jorge Pizarro',
+        //]);
 
         if($fecha_termino > $fecha_inicio){
-            $mensaje = "esta bien";
-            return redirect()->route('trabajo_titulacions.create')
-            ->with('info', $mensaje);
+          ////return redirect()->route('trabajo_titulacions.create')
+            //->with('info', $org_externa);
+            $trabajo = TrabajoTitulacion::create($request->all());
+
+            //$trabajo->estudiantes()->attach($request->get('estudiantes'));
+
+            return redirect()->route('trabajo_titulacions.index')
+            ->with('info', 'Trabajo creado con exito');
         }else{
-            $mensaje = "esta mal";
+            $mensaje = "error en la fecha";
             return redirect()->route('trabajo_titulacions.create')
             ->with('info', $mensaje);
         }
@@ -93,7 +109,19 @@ class TrabajoTitulacionController extends Controller
     //aca se creara la comision(aca haces los metodos de redireccion puga)
     public function edit($id)
     {
-        //return view('trabajo_titulacions.edit');
+        $trabajo_titulacion = TrabajoTitulacion::find($id);
+        $actividad_titulacions = ActividadTitulacion::orderBy('nombre', 'ASC')
+        ->pluck('nombre', 'id','comision','cant_estudiante');
+
+        $academicos = Academico::orderBy('nombre', 'ASC')
+        ->pluck('nombre','id');
+
+        $estudiantes = Estudiante::orderBy('nombre','ASC')
+        ->pluck('nombre', 'id',);
+
+        $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
+        ->pluck('nombre','id');
+        return view('admin.trabajo_titulacions.edit', compact('trabajo_titulacion','actividad_titulacions','academicos','estudiantes','organizaciones'));
     }
 
     /**
@@ -116,8 +144,8 @@ class TrabajoTitulacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     //esto quedara como el anular en caso de problemas de redireccion
-    public function destroy()
+    public function destroy($id)
     {
-        return view('trabajo_titulacions.edit');
+        //return view('trabajo_titulacions.delete');
     }
 }
