@@ -29,18 +29,6 @@
                     <li class="nav-item">
                         <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Tabajo Titulacion</a>
                     </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
-                    </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('carreras.index') }}">Inscripcion Formal </a>
-                    </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('tutors.index') }}">Registrar Examen de Titulo </a>
-                    </li>
                </ul> 
             </div>
         
@@ -102,7 +90,7 @@ Listado de Trabajos de Titulación
                     <a href="{{ route('trabajo_titulacions.create') }}" class="btn btn-sm btn-primary pull-right">
                         Crear
                     </a>
-                    <a href="{{ route('trabajo_titulacions.registrar') }}" class="btn btn-sm btn-primary pull-right">
+                    <a href="{{ route('trabajo_titulacions.registrar',$trabajo_titulacion->id) }}" class="btn btn-sm btn-primary pull-right">
                         Registrar
                     </a>
 </div>
@@ -128,7 +116,6 @@ Listado de Trabajos de Titulación
                             <td>{{ $trabajo_titulacion->estado }}</td>
                             <td>{{ $trabajo_titulacion->fecha_inicio }}</td>
                             <td>{{ $trabajo_titulacion->fecha_termino }}</td>
-                            
                             <td width="10px">
                                 <a href="{{ route('trabajo_titulacions.edit', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
                                     autorizar
