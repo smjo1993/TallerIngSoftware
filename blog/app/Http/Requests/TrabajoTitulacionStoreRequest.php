@@ -28,7 +28,7 @@ class TrabajoTitulacionStoreRequest extends FormRequest
             //'duracion' => 'required|integer|Min:1',
             //'comision' => 'required|in:SI,NO',
             //'cant_estudiante'=> 'required|integer|Min:1',
-         
+            'numero'   => 'integer',
         ];
     }
 }

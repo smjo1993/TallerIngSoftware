@@ -30,6 +30,18 @@
                     <li class="nav-item">
                         <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Tabajo Titulacion</a>
                     </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
+                    </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('carreras.index') }}">Inscripcion Formal </a>
+                    </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('tutors.index') }}">Registrar Examen de Titulo </a>
+                    </li>
                </ul> 
             </div>
         

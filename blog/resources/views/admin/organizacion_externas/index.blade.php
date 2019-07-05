@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 <nav class="navbar navbar-expand-md navbar-dark sticky-top"
     style="background-color: #23415B;">
         <div class="container-fluid">
@@ -15,8 +14,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                            <a class nav-link href="{{ route('estudiantes.index') }}">Estudiantes</a>
-                         
+                            <a class nav-link href="{{ route('estudiantes.index') }}">Estudiantes</a>                        
                     </li>
                     &nbsp
                     <li class="nav-item">
@@ -30,6 +28,22 @@
                     <li class="nav-item">
                         <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Tabajo Titulacion</a>
                     </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
+                    </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('carreras.index') }}">Inscripcion Formal </a>
+                    </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('tutors.index') }}">Registrar Examen de Titulo </a>
+                    </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('tutors.index') }}">Registrar examen de titulo </a>
+                    </li>
                </ul> 
             </div>
         
@@ -38,7 +52,11 @@
 
 
     </nav>
-    @section('content')
+    <!--<nav class="navbar-nav2 fixed-bottom navbar-expand-md navbar-light"style="background-color: #23415B;">
+        <a class="navbar-brand" href="#"></a>
+    </nav>  -->
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,37 +71,53 @@
 </head>
 <body style="background-color: #EDE9E3;">
 
-
-
-
     <nav class="navbar fixed-bottom navbar-expand-md navbar-light"style="background-color: #23415B;">
             <a class="navbar-brand" href="#"></a>
     </nav>  
 
+
     <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel-panel-default">
-            &nbsp
-                <div class="panel-heading">
-                    ACA SE ANULA
-
-                </div>
-                &nbsp
-                <div class="panel-body">
-                    {!! Form::model($trabajo_titulacion, ['route' => ['trabajo_titulacions.update', $trabajo_titulacion->id],
-                    'method' => 'PUT']) !!}
-                    
-                        @include('admin.trabajo_titulacions.partials.form')
-
-                    {!! Form::close() !!}
-                </div>
-            </div>
-            &nbsp
-        </div>
-    </div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2"> 
+<div class="panel panel-default">
+<div class="datagrid">
+Anular Trabajo de Titulacion
+&nbsp
 </div>
+</div>
+<div class="col-md-8">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th width="10px">ID</th>
+                            <th width="10px">Nombre</th>
+                            <th width="10px">Estado</th>
+                            <th width="10px">Fecha inicio</th>
+                            <th width="10px">Fecha Termino</th>
+                            <th colspan="3">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($trabajo_titulacions as $trabajo_titulacion)
+                        <tr>
 
-</body>
-</html>
+                            <td>{{ $trabajo_titulacion->id }}</td>
+                            <td>{{ $trabajo_titulacion->nombre }}</td>
+                            <td>{{ $trabajo_titulacion->estado }}</td>
+                            <td>{{ $trabajo_titulacion->fecha_inicio }}</td>
+                            <td>{{ $trabajo_titulacion->fecha_termino }}</td>
+                            <td width="10px">
+                                <a href="{{ route('organizacion_externas.show', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                    anular
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $trabajo_titulacions->render() }}
+            </div>
+</div>
+</div>
+</div>
 @endsection
