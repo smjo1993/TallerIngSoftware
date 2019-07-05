@@ -26,6 +26,7 @@ class CarreraController extends Controller
     public function index(Request $request)
     { 
         $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->numero()
         ->where('estado','ACEPTADA')
         ->paginate(10);
         return view('admin.carreras.index', compact('trabajo_titulacions'));
@@ -99,7 +100,17 @@ class CarreraController extends Controller
     //aca haces que la comision se agregue al trabajo puga
     public function update(TrabajoTitulacionUpdateRequest $request, $id)
     {
-        //aca se trabaja burgos
+        $trabajo_titulacion = TrabajoTitulacion::find($id);
+        $numero = $request->get('numero');
+        $trabajo_titulacion->numero = $numero;
+        $trabajo_titulacion->save();
+
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->numero()
+        ->where('estado','ACEPTADA')
+        ->paginate(10);
+
+        return view('admin.carreras.index', compact('trabajo_titulacions'));
     }
 
     /**

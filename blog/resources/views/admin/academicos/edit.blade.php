@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top"
     style="background-color: #23415B;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="http://www.ucn.cl/"><img src="img/logo.png" width="80" height="80" alt="">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" width="80" height="80" alt="">
                 <span class="navbar-text"style=color:white;font-family:Verdana;font-size:17px;>
                         &nbsp &nbsp Universidad Catolica del Norte
                       </span>
@@ -27,7 +27,11 @@
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
+                        <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Trabajo Titulacion</a>
+                    </li>
+                    &nbsp
+                    <li class="nav-item">
+                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Trabajo Titulacion </a>
                     </li>
                     &nbsp
                     <li class="nav-item">

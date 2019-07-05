@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top"
     style="background-color: #23415B;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="http://www.ucn.cl/"><img src="img/logo.png" width="80" height="80" alt="">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" width="80" height="80" alt="">
                 <span class="navbar-text"style=color:white;font-family:Verdana;font-size:17px;>
                         &nbsp &nbsp Universidad Catolica del Norte
                       </span>
@@ -28,11 +28,11 @@
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Tabajo Titulacion</a>
+                        <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Trabajo Titulacion</a>
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
+                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Trabajo Titulacion </a>
                     </li>
                     &nbsp
                     <li class="nav-item">
@@ -88,15 +88,27 @@
                         {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'readonly']) }}
                     </div>
                     <div class="form-group">
+                        {{ Form::label('id_academico' , 'Profesor guia') }}
+                        {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('id_organizacion', 'Tutor Organizacion Externa') }}
+                        {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('numero', 'Email Numero de inscripcion') }}
+                        {{ Form::text('numero', null, ['class' => 'form-control', 'id' => 'email' ]) }}
+                    </div>
+                    <div class="form-group">
                         {{ Form::label('fecha_inicio' , 'Fecha de inicio de la Actividad') }}
-                        {{ Form::text('fecha_inicio', null, ['class' => 'form-control', 'id' => 'fecha_inicio', 'readonly']) }}
+                        {{ Form::text('fecha_inicio', null, ['class' => 'form-control', 'id' => 'numero']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::label('fecha_termino' , 'Fecha de termino de la Actividad') }}
                         {{ Form::text('fecha_termino', null, ['class' => 'form-control', 'id' => 'fecha_termino', 'readonly']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::submit('Anular', ['class' => 'btn btn-sm btn-primary'] ) }}
+                        {{ Form::submit('Inscribir', ['class' => 'btn btn-sm btn-primary'] ) }}
                     </div>
                     <!--@include('admin.trabajo_titulacions.partials.form')-->
 

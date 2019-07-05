@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top"
     style="background-color: #23415B;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="http://www.ucn.cl/"><img src="img/logo.png" width="80" height="80" alt="">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" width="80" height="80" alt="">
                 <span class="navbar-text"style=color:white;font-family:Verdana;font-size:17px;>
                         &nbsp &nbsp Universidad Catolica del Norte
                       </span>
@@ -28,11 +28,11 @@
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Tabajo Titulacion</a>
+                        <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Trabajo Titulacion</a>
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
+                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Trabajo Titulacion </a>
                     </li>
                     &nbsp
                     <li class="nav-item">
@@ -88,15 +88,15 @@
                         {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'readonly']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::label('fecha_inicio' , 'Fecha de inicio de la Actividad') }}
-                        {{ Form::text('fecha_inicio', null, ['class' => 'form-control', 'id' => 'fecha_inicio', 'readonly']) }}
+                        {{ Form::label('fecha_examen_titulo' , 'Fecha Examen de Titulo') }}
+                        {{Form::date('fecha_examen_titulo', \Carbon\Carbon::now(), array('class' => 'form-control', 'required' => '')) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::label('fecha_termino' , 'Fecha de termino de la Actividad') }}
-                        {{ Form::text('fecha_termino', null, ['class' => 'form-control', 'id' => 'fecha_termino', 'readonly']) }}
+                        {{ Form::label('nota', 'Nota Final') }}
+                        {{ Form::text('nota', null, ['class' => 'form-control', 'id' => 'nota']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::submit('Anular', ['class' => 'btn btn-sm btn-primary'] ) }}
+                        {{ Form::submit('Guardar Nota', ['class' => 'btn btn-sm btn-primary'] ) }}
                     </div>
                     <!--@include('admin.trabajo_titulacions.partials.form')-->
 

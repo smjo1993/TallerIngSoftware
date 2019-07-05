@@ -139,9 +139,10 @@ class TrabajoTitulacionController extends Controller
 
  
 
-        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.trabajo_titulacions.index', compact('trabajo_titulacions'))
-        ->with('info', $estado);
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->where('estado','INGRESADA')
+        ->paginate(10);
+        return view('admin.trabajo_titulacions.index', compact('trabajo_titulacions'));
     }
 
     /**

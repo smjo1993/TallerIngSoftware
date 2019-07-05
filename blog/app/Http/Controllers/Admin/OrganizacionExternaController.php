@@ -26,7 +26,8 @@ class OrganizacionExternaController extends Controller
     public function index(Request $request)
     { 
         $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
-        ->where('estado','ACEPTADA')
+        ->siestado()
+        ->noestado('ANULADA')
         ->paginate(10);
         return view('admin.organizacion_externas.index', compact('trabajo_titulacions'));
     }
@@ -104,7 +105,10 @@ class OrganizacionExternaController extends Controller
         $trabajo_titulacion->save();
         
 
-        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')->paginate(10);
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->siestado()
+        ->noestado($estado)
+        ->paginate(10);
         return view('admin.organizacion_externas.index', compact('trabajo_titulacions'))
         ->with('info', $estado);
     }

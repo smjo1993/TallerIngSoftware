@@ -26,6 +26,7 @@ class TutorController extends Controller
     public function index(Request $request)
     { 
         $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->poseenumero()
         ->where('estado','ACEPTADA')
         ->paginate(10);
         return view('admin.tutors.index', compact('trabajo_titulacions'));
@@ -99,7 +100,22 @@ class TutorController extends Controller
     //aca haces que la comision se agregue al trabajo puga
     public function update(TrabajoTitulacionUpdateRequest $request, $id)
     {
-        //aca se trabaja luciano
+                $trabajo_titulacion = TrabajoTitulacion::find($id);
+        $estado = 'FINALIZADA';
+        $trabajo_titulacion->estado = $estado;
+        $trabajo_titulacion->save();
+        $nota = $request->get('nota');
+        $trabajo_titulacion->nota = $nota;
+        $trabajo_titulacion->save();    
+        $fecha_examen_titulo = $request->get('fecha_examen_titulo');
+        $trabajo_titulacion->fecha_examen_titulo = $fecha_examen_titulo;
+        $trabajo_titulacion->save();
+
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->poseenumero()
+        ->where('estado','ACEPTADA')
+        ->paginate(10);
+        return view('admin.tutors.index', compact('trabajo_titulacions'));
     }
 
     /**
