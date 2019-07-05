@@ -104,7 +104,6 @@ class TrabajoTitulacionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //aca se creara la comision(aca haces los metodos de redireccion puga)
     public function edit($id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
@@ -129,7 +128,6 @@ class TrabajoTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //aca haces que la comision se agregue al trabajo puga
     public function update(TrabajoTitulacionUpdateRequest $request, $id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
