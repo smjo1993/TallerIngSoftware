@@ -100,7 +100,7 @@ class TutorController extends Controller
     //aca haces que la comision se agregue al trabajo puga
     public function update(TrabajoTitulacionUpdateRequest $request, $id)
     {
-                $trabajo_titulacion = TrabajoTitulacion::find($id);
+        $trabajo_titulacion = TrabajoTitulacion::find($id);
         $estado = 'FINALIZADA';
         $trabajo_titulacion->estado = $estado;
         $trabajo_titulacion->save();

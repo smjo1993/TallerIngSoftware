@@ -96,7 +96,7 @@
                         {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::label('numero', 'Email Numero de inscripcion') }}
+                        {{ Form::label('numero', 'Numero de inscripcion') }}
                         {{ Form::text('numero', null, ['class' => 'form-control', 'id' => 'email' ]) }}
                     </div>
                     <div class="form-group">
