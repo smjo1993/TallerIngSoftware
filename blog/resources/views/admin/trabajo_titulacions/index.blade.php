@@ -90,6 +90,9 @@ Listado de Trabajos de Titulación
                     <a href="{{ route('trabajo_titulacions.create') }}" class="btn btn-sm btn-primary pull-right">
                         Crear
                     </a>
+                    <a href="{{ route('trabajo_titulacions.registrar') }}" class="btn btn-sm btn-primary pull-right">
+                        Registrar
+                    </a>
 </div>
 </div>
 <div class="col-md-8">
@@ -123,6 +126,7 @@ Listado de Trabajos de Titulación
                                     anular
                                 </a>
                             </td>
+
                         </tr>
                         @endforeach
                     </tbody>

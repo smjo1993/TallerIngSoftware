@@ -160,4 +160,12 @@ class TrabajoTitulacionController extends Controller
     {
 
     }
+
+    public function registrar($id)
+    {
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+            ->where('estado',"ACEPTADA")
+            ->paginate(10);
+        return view('admin.trabajo_titulacions.registrar', compact('trabajo_titulacions'));
+    }
 }

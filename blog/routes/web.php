@@ -29,3 +29,5 @@ Route::resource('estudiantes','Admin\EstudianteController');
 Route::resource('academicos','Admin\AcademicoController');
 Route::resource('actividad_titulacions','Admin\ActividadTitulacionController');
 Route::resource('trabajo_titulacions','Admin\TrabajoTitulacionController');
+Route::get('registrar', 'Admin\TrabajoTitulacionController@registrar')
+     ->name('registrar');
