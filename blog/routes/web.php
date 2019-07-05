@@ -21,11 +21,14 @@ Route::get('blog', 'Web\PageController@blog')->name('blog');
 Route::get('entrada/{slug}',   'Web\PageController@post')->name('post');
 Route::get('categoria/{slug}', 'Web\PageController@category')->name('category');
 Route::get('etiqueta/{slug}',  'Web\PageController@tag')->name('tag');
-Route::get('seleccionaractividad', 'Admin\TrabajoTitulacionController@seleccionaractividad')
-    ->name('seleccionaractividad');
+Route::get('anular/{id}', 'Admin\TrabajoTitulacionController@anular')
+    ->name('anular');
 //administrativas
 
 Route::resource('estudiantes','Admin\EstudianteController');
 Route::resource('academicos','Admin\AcademicoController');
 Route::resource('actividad_titulacions','Admin\ActividadTitulacionController');
 Route::resource('trabajo_titulacions','Admin\TrabajoTitulacionController');
+Route::resource('organizacion_externas','Admin\OrganizacionExternaController');
+Route::resource('carreras','Admin\CarreraController');
+Route::resource('tutors','Admin\TutorController');

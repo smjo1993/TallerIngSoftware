@@ -1,9 +1,8 @@
 @extends('layouts.app')
-
 <nav class="navbar navbar-expand-md navbar-dark sticky-top"
     style="background-color: #23415B;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" width="80" height="80" alt="">
+            <a class="navbar-brand" href="http://www.ucn.cl/"><img src="img/logo.png" width="80" height="80" alt="">
                 <span class="navbar-text"style=color:white;font-family:Verdana;font-size:17px;>
                         &nbsp &nbsp Universidad Catolica del Norte
                       </span>
@@ -15,8 +14,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                            <a class nav-link href="{{ route('estudiantes.index') }}">Estudiantes</a>
-                         
+                            <a class nav-link href="{{ route('estudiantes.index') }}">Estudiantes</a>                        
                     </li>
                     &nbsp
                     <li class="nav-item">
@@ -40,7 +38,7 @@
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('tutors.index') }}">Registrar examen de titulo </a>
+                        <a class nav-link href="{{ route('tutors.index') }}">Registrar Examen de Titulo </a>
                     </li>
                </ul> 
             </div>
@@ -50,6 +48,9 @@
 
 
     </nav>
+    <!--<nav class="navbar-nav2 fixed-bottom navbar-expand-md navbar-light"style="background-color: #23415B;">
+        <a class="navbar-brand" href="#"></a>
+    </nav>  -->
 @section('content')
 
 <!DOCTYPE html>
@@ -70,81 +71,47 @@
             <a class="navbar-brand" href="#"></a>
     </nav>  
 
-<div class="container">
+
+    <div class="container">
 <div class="row">
 <div class="col-md-8 col-md-offset-2"> 
 <div class="panel panel-default">
 <div class="datagrid">
-
+Inscripcion Formal
 &nbsp
-                <h1>
-                    Busqueda de academicos
-                    {{ Form::open(['route' => 'academicos.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
-                        <div class="form-group">
-                            {{ Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) }}
-                        </div>
-                        &nbsp
-                        <div class="form-group">
-                            {{ Form::text('rut', null, ['class' => 'form-control', 'placeholder' => 'RUT']) }}
-                        </div>
-                        &nbsp
-                        <div class="form-group">
-                            <button type = "submit" class = "btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
-                               Buscar
-                            </button>
-                        </div>
-                    {{ Form::close() }}
-                    </h1>
-                    &nbsp
-
-Listado de Académicos
-&nbsp
-<a href="{{route('academicos.create')}}" class="btn btn-sm btn-primary pull-right"> Crear </a>
 </div>
 </div>
-<div class="datagrid">
-                <table class="table table-striped table-hover">                
+<div class="col-md-8">
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th width="10px">ID</th>
-                            <th>Nombre</th>
-                            <th></th>
-                            <th></th>
-                            <th>Rut</th>
+                            <th width="10px">Nombre</th>
+                            <th width="10px">Estado</th>
+                            <th width="10px">Fecha inicio</th>
+                            <th width="10px">Fecha Termino</th>
                             <th colspan="3">&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($academicos as $academico)
+                        @foreach($trabajo_titulacions as $trabajo_titulacion)
                         <tr>
-                            <td>{{ $academico->id }}</td>
-                            <td>{{ $academico->nombre }}</td>
-                            <td>{{ $academico->apellido_paterno }}</td>
-                            <td>{{ $academico->apellido_materno }}</td>
-                            <td>{{ $academico->rut }}</td>
+
+                            <td>{{ $trabajo_titulacion->id }}</td>
+                            <td>{{ $trabajo_titulacion->nombre }}</td>
+                            <td>{{ $trabajo_titulacion->estado }}</td>
+                            <td>{{ $trabajo_titulacion->fecha_inicio }}</td>
+                            <td>{{ $trabajo_titulacion->fecha_termino }}</td>
                             <td width="10px">
-                                <a href="{{ route('academicos.show', $academico->id) }}" class="btn btn-sm btn-default">
-                                    ver
+                                <a href="{{ route('tutors.show', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                    Inscribir
                                 </a>
-                            </td>
-                            <td width="10px">
-                                <a href="{{ route('academicos.edit', $academico->id) }}" class="btn btn-sm btn-default">
-                                    editar
-                                </a>
-                            </td>
-                            <td width="10px">
-                                {!! Form::open(['route' => ['academicos.destroy', $academico->id], 'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">
-                                        Eliminar
-                                    </button>
-                                {!! Form::close() !!}
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{ $academicos->render() }}
+                {{ $trabajo_titulacions->render() }}
             </div>
 </div>
 </div>

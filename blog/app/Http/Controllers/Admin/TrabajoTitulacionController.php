@@ -14,6 +14,8 @@ use App\ActividadTitulacion;
 use App\Academico;
 use App\Estudiante;
 use App\OrganizacionExterna;
+use DB;
+
 class TrabajoTitulacionController extends Controller
 {
     /**
@@ -27,7 +29,9 @@ class TrabajoTitulacionController extends Controller
         //$nombre = $request->get('nombre');
         //$id    = $request->get('id');
       
-        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')->paginate(10);
+        $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
+        ->where('estado','INGRESADA')
+        ->paginate(10);
         return view('admin.trabajo_titulacions.index', compact('trabajo_titulacions'));
     }
 
@@ -67,11 +71,6 @@ class TrabajoTitulacionController extends Controller
         $fecha_termino = $request->get('fecha_termino');
         //$org_externa = $request->get('id_actividad')->organizacion($id_actividad);
 
-        //App\OrganizacionExterna::create([
-            //'id' => '1',
-            //  'nombre_tutor' => 'Jorge Pizarro',
-        //]);
-
         if($fecha_termino > $fecha_inicio){
           ////return redirect()->route('trabajo_titulacions.create')
             //->with('info', $org_externa);
@@ -96,19 +95,6 @@ class TrabajoTitulacionController extends Controller
      */
     public function show($id)
     {
-        $trabajo_titulacion = TrabajoTitulacion::find($id);
-        $actividad_titulacions = ActividadTitulacion::orderBy('nombre', 'ASC')
-        ->pluck('nombre', 'id','comision','cant_estudiante');
-
-        $academicos = Academico::orderBy('nombre', 'ASC')
-        ->pluck('nombre','id');
-
-        $estudiantes = Estudiante::orderBy('nombre','ASC')
-        ->pluck('nombre', 'id',);
-
-        $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
-        ->pluck('nombre','id');
-        return view('admin.trabajo_titulacions.show', compact('trabajo_titulacion','actividad_titulacions','academicos','estudiantes','organizaciones'));
     }
 
     /**
@@ -146,7 +132,7 @@ class TrabajoTitulacionController extends Controller
     //aca haces que la comision se agregue al trabajo puga
     public function update(TrabajoTitulacionUpdateRequest $request, $id)
     {
-
+        //aca tienes que trabajar puga
     }
 
     /**
@@ -156,7 +142,7 @@ class TrabajoTitulacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     //esto quedara como el anular en caso de problemas de redireccion
-    public function destroy($id)
+    public function destroy(TrabajoTitulacionUpdateRequest $request, $id)
     {
 
     }

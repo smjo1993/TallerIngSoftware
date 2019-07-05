@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+
 <nav class="navbar navbar-expand-md navbar-dark sticky-top"
     style="background-color: #23415B;">
         <div class="container-fluid">
@@ -20,7 +20,7 @@
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('academicos.index') }}">Academicos</a>
+                            <a class nav-link href="{{ route('academicos.index') }}">Academicos</a>
                     </li>
                     &nbsp
                     <li class="nav-item">
@@ -36,11 +36,7 @@
                     </li>
                     &nbsp
                     <li class="nav-item">
-                        <a class nav-link href="{{ route('carreras.index') }}">Inscripcion Formal </a>
-                    </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('tutors.index') }}">Registrar examen de titulo </a>
+                        <a class nav-link href="{{ route('tutors.index') }}">Registrar Examen de Titulo </a>
                     </li>
                </ul> 
             </div>
@@ -50,8 +46,7 @@
 
 
     </nav>
-@section('content')
-
+    @section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,28 +68,46 @@
             <a class="navbar-brand" href="#"></a>
     </nav>  
 
-
-<div class="container">
+    <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel-panel-default">
+            &nbsp
                 <div class="panel-heading">
-                    Crear Académico
+
+                    Anular Actividad de titulacion
 
                 </div>
-            
+                &nbsp
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'academicos.store']) !!}
+                    {!! Form::model($trabajo_titulacion, ['route' => ['tutors.update', $trabajo_titulacion->id],
+                    'method' => 'PUT']) !!}
                     
-                        {{ Form::label('rut', 'Rut Académico') }}
-                        {{ Form::text('rut', null, ['class' => 'form-control', 'id' => 'rut' ]) }}
-
-                        @include('admin.academicos.partials.form')
+                    <div class="form-group">
+                        {{ Form::label('nombre', 'Titulo Trabajo Titulacion') }}
+                        {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('fecha_inicio' , 'Fecha de inicio de la Actividad') }}
+                        {{ Form::text('fecha_inicio', null, ['class' => 'form-control', 'id' => 'fecha_inicio', 'readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('fecha_termino' , 'Fecha de termino de la Actividad') }}
+                        {{ Form::text('fecha_termino', null, ['class' => 'form-control', 'id' => 'fecha_termino', 'readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::submit('Anular', ['class' => 'btn btn-sm btn-primary'] ) }}
+                    </div>
+                    <!--@include('admin.trabajo_titulacions.partials.form')-->
 
                     {!! Form::close() !!}
                 </div>
             </div>
+            &nbsp
         </div>
     </div>
 </div>
+
+</body>
+</html>
 @endsection
