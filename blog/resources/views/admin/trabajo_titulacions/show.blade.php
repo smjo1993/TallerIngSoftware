@@ -30,18 +30,6 @@
                     <li class="nav-item">
                         <a class nav-link href="{{ route('trabajo_titulacions.index') }}">Tabajo Titulacion</a>
                     </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('organizacion_externas.index') }}">Anular Tabajo Titulacion </a>
-                    </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('carreras.index') }}">Inscripcion Formal </a>
-                    </li>
-                    &nbsp
-                    <li class="nav-item">
-                        <a class nav-link href="{{ route('tutors.index') }}">Registrar Examen de Titulo </a>
-                    </li>
                </ul> 
             </div>
         
@@ -78,29 +66,16 @@
             <div class="panel-panel-default">
             &nbsp
                 <div class="panel-heading">
-                    
+                    ACA SE ANULA
 
                 </div>
                 &nbsp
                 <div class="panel-body">
                     {!! Form::model($trabajo_titulacion, ['route' => ['trabajo_titulacions.update', $trabajo_titulacion->id],
                     'method' => 'PUT']) !!}
-                    <div class="form-group">
-                          {{ Form::label('nombre', 'Titulo Trabajo Titulacion') }}
-                          {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre' ]) }}
-                       </div>
-                       <div class="form-group">
-                         {{ Form::label('id_academico' , 'Profesor guia') }}
-                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control']) }}
-                       </div>
+                    
+                        @include('admin.trabajo_titulacions.partials.form')
 
-                     <div class="form-group">
-                        {{ Form::label('id_organizacion', 'Tutor Organizacion Externa') }}
-                        {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control']) }}
-                     </div>
-                     <div class="form-group">
-    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary'] ) }}
-</div>
                     {!! Form::close() !!}
                 </div>
             </div>
