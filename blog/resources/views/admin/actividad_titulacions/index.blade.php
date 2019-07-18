@@ -92,7 +92,7 @@
                         </div>
                         &nbsp
                         <div class="form-group">
-                            <button type = "submit" class = "btn btn-default">
+                            <button type = "submit" class = "btn btn-sm btn-primary">
                                 <span class="glyphicon glyphicon-search"></span>
                                Buscar
                             </button>
@@ -100,7 +100,8 @@
                     {{ Form::close() }}
                     </h1>
                     &nbsp
-
+                    &nbsp
+                    &nbsp
 Listado de Actividades de Titulación
 <a href="{{route('actividad_titulacions.create')}}" class="btn btn-sm btn-primary pull-right"> Crear </a>
 </div>
@@ -124,18 +125,18 @@ Listado de Actividades de Titulación
                             <td>{{ $actividad_titulacion->duracion }}</td>
                             <td>{{ $actividad_titulacion->comision }}</td>
                             <td width="10px">
-                                <a href="{{ route('actividad_titulacions.show', $actividad_titulacion->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('actividad_titulacions.show', $actividad_titulacion->id) }}" class="btn btn-sm btn-primary">
                                     ver
                                 </a>
                             </td>
                             <td width="10px">
-                                <a href="{{ route('actividad_titulacions.edit', $actividad_titulacion->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('actividad_titulacions.edit', $actividad_titulacion->id) }}" class="btn btn-sm btn-primary">
                                     editar
                                 </a>
                             </td>
                             <td width="10px">
                                 {!! Form::open(['route' => ['actividad_titulacions.destroy', $actividad_titulacion->id], 'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">
+                                    <button class="btn btn-sm btn-danger btn-delete">
                                         Eliminar
                                     </button>
                                 {!! Form::close() !!}
@@ -149,4 +150,5 @@ Listado de Actividades de Titulación
 </div>
 </div>
 </div>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

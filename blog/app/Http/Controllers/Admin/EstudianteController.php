@@ -109,20 +109,21 @@ class EstudianteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EstudianteUpdateRequest $request, $id)
+    public function update(Request $request,EstudianteUpdateRequest $requestUpdate, $id)
     {
+        if($request->ajax()){
         $estudiante = Estudiante::find($id);
-
-        $carreras_eliminar = Carrera::orderBy('descripcion', 'ASC')->get();
         
         $rut = $estudiante->rut;
 
         $estudiante->fill($request->all())->save();
 
-        $estudiante->carreras()->sync($request->get('carreras'));
-
-        return redirect()->route('estudiantes.edit', $estudiante->id)
-        ->with('info', 'Estudiante actualizada con exito');
+        //return redirect()->route('estudiantes.edit', $estudiante->id)
+        //->with('info', 'Estudiante actualizada con exito');
+        return response()->json([
+            'info' => 'Estudiante actualizada con exito'
+        ]);
+        }
     }
 
     /**
@@ -131,11 +132,15 @@ class EstudianteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $estudiante = Estudiante::find($id)->delete();
-
-        return back()->with('info', 'Eliminado correctamente');
+        if($request->ajax()){
+            $estudiante = Estudiante::find($id)->delete();
+            //return back()->with('info', 'Eliminado correctamente');
+            return response()->json([
+                //'message' => $estudiante->nombre . 'fue eliminado exitosamente'
+            ]);
+        }
     }
 
 

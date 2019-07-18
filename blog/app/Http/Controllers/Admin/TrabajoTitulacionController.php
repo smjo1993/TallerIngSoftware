@@ -25,9 +25,6 @@ class TrabajoTitulacionController extends Controller
      */
     public function index(Request $request)
     {
-
-        //$nombre = $request->get('nombre');
-        //$id    = $request->get('id');
       
         $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
         ->where('estado','INGRESADA')
@@ -42,8 +39,14 @@ class TrabajoTitulacionController extends Controller
      */
     public function create()
     {
-        $actividad_titulacions = ActividadTitulacion::orderBy('nombre', 'ASC')
-        ->pluck('nombre', 'id','comision','cant_estudiante');
+        $actividad_titulacions = ActividadTitulacion::orderBy('id', 'ASC')
+        ->pluck('nombre', 'id');
+
+        $actividad_titulacions2 = ActividadTitulacion::orderBy('id', 'ASC')
+        ->pluck('comision','id');
+
+        $actividad_titulacions3 = ActividadTitulacion::orderBy('id', 'ASC')
+        ->pluck('cant_estudiante','id');
 
         $academicos = Academico::orderBy('nombre', 'ASC')
         ->pluck('nombre','id');
@@ -54,9 +57,7 @@ class TrabajoTitulacionController extends Controller
         $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
         ->pluck('nombre','id');
 
-        //$var = 5;
-        //return redirect()->route('trabajo_titulacions.seleccionaractividad');
-        return view('admin.trabajo_titulacions.create', compact('actividad_titulacions','academicos','estudiantes','organizaciones'));
+        return view('admin.trabajo_titulacions.create', compact('actividad_titulacions','actividad_titulacions2','actividad_titulacions3','academicos','estudiantes','organizaciones'));
     }
 
     /**
@@ -69,14 +70,69 @@ class TrabajoTitulacionController extends Controller
     {
         $fecha_inicio = $request->get('fecha_inicio');
         $fecha_termino = $request->get('fecha_termino');
-        //$org_externa = $request->get('id_actividad')->organizacion($id_actividad);
 
         if($fecha_termino > $fecha_inicio){
-          ////return redirect()->route('trabajo_titulacions.create')
-            //->with('info', $org_externa);
-            $trabajo = TrabajoTitulacion::create($request->all());
 
-            //$trabajo->estudiantes()->attach($request->get('estudiantes'));
+            $trabajo = TrabajoTitulacion::create($request->all());
+            $id_trabajo = $trabajo->id;
+            $nombre_organizacion = $request->get('nombre_organizacion');
+            $nombre_tutor = $request->get('nombre_tutor');
+
+            //se crea la nueva organizacion
+            if($nombre_organizacion && $nombre_tutor){
+                $organizacion = DB::table('organizacion_externas')->insert([
+                    'nombre'=>$nombre_organizacion,
+                    'nombre_tutor'=>$nombre_tutor
+                ]);
+                /** 
+                $id_organizacion = $organizacion->get('id');
+                
+                DB::table('trabajo_titulacions')->insert([
+                    'id_organizacion'=>$id_organizacion
+                ]);
+                */
+            }
+            //estudiante1
+            $primer_estudiante = $request->get('id_estudiante');
+            if($primer_estudiante){
+                DB::table('estudiante_trabajo_titulacion')->insert([
+                    'estudiante_id'=>$primer_estudiante,
+                    'trabajo_titulacion_id'=>$id_trabajo
+                ]);
+            }
+            //estudiante2
+            $segundo_estudiante = $request->get('id_estudiante2');
+            if($segundo_estudiante){
+                DB::table('estudiante_trabajo_titulacion')->insert([
+                    'estudiante_id'=>$segundo_estudiante,
+                    'trabajo_titulacion_id'=>$id_trabajo
+                ]);
+            }
+            //estudiante3
+            $tercer_estudiante = $request->get('id_estudiante3');
+            if($tercer_estudiante){
+                DB::table('estudiante_trabajo_titulacion')->insert([
+                    'estudiante_id'=>$tercer_estudiante,
+                    'trabajo_titulacion_id'=>$id_trabajo
+                ]);
+            }
+            //estudiante4
+            $cuarto_estudiante = $request->get('id_estudiante4');
+            if($cuarto_estudiante){
+                DB::table('estudiante_trabajo_titulacion')->insert([
+                    'estudiante_id'=>$cuarto_estudiante,
+                    'trabajo_titulacion_id'=>$id_trabajo
+                ]);
+            }
+            //estudiante5
+            $quinto_estudiante = $request->get('id_estudiante5');
+            if($quinto_estudiante){
+                DB::table('estudiante_trabajo_titulacion')->insert([
+                    'estudiante_id'=>$quinto_estudiante,
+                    'trabajo_titulacion_id'=>$id_trabajo
+                ]);
+            }
+
 
             return redirect()->route('trabajo_titulacions.index')
             ->with('info', 'Trabajo creado con exito');
@@ -93,8 +149,9 @@ class TrabajoTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
+        return view('admin.trabajo_titulacions.show');
     }
 
     /**
@@ -107,18 +164,21 @@ class TrabajoTitulacionController extends Controller
     public function edit($id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
+        
         $actividad_titulacions = ActividadTitulacion::orderBy('nombre', 'ASC')
         ->pluck('nombre', 'id','comision','cant_estudiante');
-
         $academicos = Academico::orderBy('nombre', 'ASC')
         ->pluck('nombre','id');
-
         $estudiantes = Estudiante::orderBy('nombre','ASC')
         ->pluck('nombre', 'id',);
 
         $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
         ->pluck('nombre_tutor','id');
         return view('admin.trabajo_titulacions.edit', compact('trabajo_titulacion','actividad_titulacions','academicos','estudiantes','organizaciones'));
+    }
+
+    public function datos(){
+        
     }
 
     /**
@@ -128,19 +188,16 @@ class TrabajoTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(TrabajoTitulacionUpdateRequest $request, $id)
+    public function update(Request $request,TrabajoTitulacionUpdateRequest $requestUpdate, $id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
         $estado = 'ACEPTADA';
         $trabajo_titulacion->estado = $estado;
         $trabajo_titulacion->save();
-
- 
-
         $trabajo_titulacions = TrabajoTitulacion::orderBy('id', 'DESC')
         ->where('estado','INGRESADA')
         ->paginate(10);
-        return view('admin.trabajo_titulacions.index', compact('trabajo_titulacions'));
+        //return view('admin.trabajo_titulacions.index', compact('trabajo_titulacions'));
     }
 
     /**

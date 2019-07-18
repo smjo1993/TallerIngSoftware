@@ -94,7 +94,7 @@
                         </div>
                         &nbsp
                         <div class="form-group">
-                            <button type = "submit" class = "btn btn-default">
+                            <button type = "submit" class = "btn btn-sm btn-primary">
                                 <span class="glyphicon glyphicon-search"></span>
                                Buscar
                             </button>
@@ -133,19 +133,22 @@
                             <td>{{ $estudiante->apellido_materno }}</td>
                             <td>{{ $estudiante->rut }}</td>
                             <td width="10px">
-                                <a href="{{ route('estudiantes.show', $estudiante->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('estudiantes.show', $estudiante->id) }}" class="btn btn-sm btn-primary">
                                     ver
                                 </a>
                             </td>
                             <td width="10px">
-                                <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="btn btn-sm btn-primary">
                                     editar
                                 </a>
                             </td>
                             <td width="10px">
                                 {!! Form::open(['route' => ['estudiantes.destroy', $estudiante->id], 'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">
+                                    <!--<button class="btn btn-sm btn-danger">
                                         Eliminar
+                                    </button>-->
+                                    <button href="#" class="btn btn-sm btn-delete btn-danger">
+                                    Eliminar
                                     </button>
                                 {!! Form::close() !!}
                             </td>
@@ -162,5 +165,7 @@
 </div>
 
 </body>
+
 </html>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

@@ -109,14 +109,18 @@ class AcademicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AcademicoUpdateRequest $request, $id)
+    public function update(Request $request, AcademicoUpdateRequest $requestUpdate, $id)
     {
+        if($request->ajax()){
         $academico = Academico::find($id);
 
         $academico->fill($request->all())->save();
         
-        return redirect()->route('academicos.edit', $academico->id)
-        ->with('info', 'Academico actualizada con exito');
+        //return redirect()->route('academicos.edit', $academico->id)
+        //->with('info', 'Academico actualizada con exito');
+        return response()->json([
+        ]);
+        }
     }
 
     /**
@@ -125,11 +129,15 @@ class AcademicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $academico = Academico::find($id)->delete();
-
-        return back()->with('info', 'Eliminado correctamente');
+        if($request->ajax()){
+            $academico = Academico::find($id)->delete();
+            //return back()->with('info', 'Eliminado correctamente');
+            return response()->json([
+                //'message' => $estudiante->nombre . 'fue eliminado exitosamente'
+            ]);
+        }
     }
 
     public function check($rut) {

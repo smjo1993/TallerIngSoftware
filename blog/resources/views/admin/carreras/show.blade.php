@@ -108,7 +108,7 @@
                         {{ Form::text('fecha_termino', null, ['class' => 'form-control', 'id' => 'fecha_termino', 'readonly']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::submit('Inscribir', ['class' => 'btn btn-sm btn-primary'] ) }}
+                        {{ Form::submit('Inscribir', ['class' => 'btn btn-sm btn-primary btn-inscribir'] ) }}
                     </div>
                     <!--@include('admin.trabajo_titulacions.partials.form')-->
 
@@ -122,4 +122,5 @@
 
 </body>
 </html>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

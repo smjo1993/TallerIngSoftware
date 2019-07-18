@@ -89,7 +89,9 @@
                         {{ Form::text('rut', null, ['class' => 'form-control', 'id' => 'rut', 'readonly']) }}
                     
                         @include('admin.estudiantes.partials.form')
-
+                        <div class="form-group">
+                            {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary btn-guardar'] ) }}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -100,4 +102,5 @@
 
 </body>
 </html>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

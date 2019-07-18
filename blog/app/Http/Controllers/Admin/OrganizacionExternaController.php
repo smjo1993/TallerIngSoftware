@@ -95,8 +95,9 @@ class OrganizacionExternaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(TrabajoTitulacionUpdateRequest $request, $id)
+    public function update(Request $request,TrabajoTitulacionUpdateRequest $requestUpdate, $id)
     {
+        if($request->ajax()){
         $trabajo_titulacion = TrabajoTitulacion::find($id);
         $estado = 'ANULADA';
         $trabajo_titulacion->estado = $estado;
@@ -107,8 +108,11 @@ class OrganizacionExternaController extends Controller
         ->siestado()
         ->noestado($estado)
         ->paginate(10);
-        return view('admin.organizacion_externas.index', compact('trabajo_titulacions'))
-        ->with('info', $estado);
+        //return view('admin.organizacion_externas.index', compact('trabajo_titulacions'))
+        //->with('info', $estado);
+        return response()->json([
+            ]);
+            }
     }
 
     /**

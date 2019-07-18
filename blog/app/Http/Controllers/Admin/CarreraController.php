@@ -95,7 +95,7 @@ class CarreraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(TrabajoTitulacionUpdateRequest $request, $id)
+    public function update(Request $request,TrabajoTitulacionUpdateRequest $requestUpdate, $id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
         $numero = $request->get('numero');

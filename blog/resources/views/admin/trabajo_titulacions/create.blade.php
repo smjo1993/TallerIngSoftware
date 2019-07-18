@@ -93,6 +93,18 @@
                         {{ Form::label('nombre', 'Titulo Trabajo Titulacion') }}
                         {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre' ]) }}
                     </div>
+                    <div class="form-group" onchange="getValue();">
+                        {{ Form::label('id_actividad' , 'Actividad') }}
+                        {{ Form::select('id_actividad' , $actividad_titulacions, null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group" style="display:none">
+                        {{ Form::label('id_actividad2' , 'comision') }}
+                        {{ Form::select('id_actividad2' , $actividad_titulacions2, null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group" style="display:none">
+                        {{ Form::label('id_actividad3' , 'estudiantes') }}
+                        {{ Form::select('id_actividad3' , $actividad_titulacions3, null, ['class' => 'form-control']) }}
+                    </div>
                     <div class="form-group">
                         {{ Form::label('id_academico' , 'Profesor guia') }}
                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control']) }}
@@ -106,24 +118,32 @@
                         {{Form::date('fecha_termino', \Carbon\Carbon::now(), array('class' => 'form-control', 'required' => '')) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::label('id_organizacion', 'Organizacion Externa') }}
-                        {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control']) }}
+                        {{ Form::label('nombre_organizacion', 'Organizacion Externa') }}
+                        {{ Form::text('nombre_organizacion', null, ['class' => 'form-control', 'id' => 'nombre_organizacion' ]) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::label('id_estudiante' , 'Estudiantes participantes') }}
+                        {{ Form::label('nombre_tutor', 'Tutor de la organizacion') }}
+                        {{ Form::text('nombre_tutor', null, ['class' => 'form-control', 'id' => 'nombre_tutor' ]) }}
+                    </div>
+                    <div class="form-group" >
+                        {{ Form::label('id_estudiante' , 'Primer Estudiante') }}
                         {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control']) }}
                     </div>
-                    <div class="form-group">
-                        {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control']) }}
+                    <div class="form-group" >
+                        {{ Form::label('id_estudiante2' , 'Segundo Estudiante') }}
+                        {{ Form::select('id_estudiante2' , $estudiantes, null, ['class' => 'form-control']) }}
                     </div>
-                    <div class="form-group">
-                        {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control']) }}
+                    <div class="form-group" >
+                        {{ Form::label('id_estudiante3' , 'Tercer Estudiante') }}
+                        {{ Form::select('id_estudiante3' , $estudiantes, null, ['class' => 'form-control']) }}
                     </div>
-                    <div class="form-group">
-                        {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control']) }}
+                    <div class="form-group" >
+                        {{ Form::label('id_estudiante4' , 'Cuarto Estudiante') }}
+                        {{ Form::select('id_estudiante4' , $estudiantes, null, ['class' => 'form-control']) }}
                     </div>
-                    <div class="form-group">
-                        {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control']) }}
+                    <div class="form-group" >
+                        {{ Form::label('id_estudiante5' , 'Quinto Estudiante') }}
+                        {{ Form::select('id_estudiante5' , $estudiantes, null, ['class' => 'form-control']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary'] ) }}
@@ -141,4 +161,56 @@
 </div>
     </body>
 </html>
+<script>
+function getValue(){
+   var value =  document.getElementById("id_actividad").value;
+   var selected = id_actividad.options[id_actividad.selectedIndex].text;
+
+   document.getElementById("id_actividad2").selectedIndex = value-1;
+   document.getElementById("id_actividad3").selectedIndex = value-1;
+
+   var value2 =  document.getElementById("id_actividad2").value;
+   var comision = id_actividad2.options[id_actividad2.selectedIndex].text;
+   var value3 =  document.getElementById("id_actividad3").value;
+   var estudiantes = id_actividad3.options[id_actividad3.selectedIndex].text;
+   
+   if(comision == "SI"){
+       document.getElementById('nombre_organizacion').style.display = 'block';
+       document.getElementById('nombre_tutor').style.display = 'block';
+   }else{
+       document.getElementById('nombre_organizacion').style.display = 'none';
+       document.getElementById('nombre_tutor').style.display = 'none';
+   }
+   if(estudiantes == 1){
+    document.getElementById('id_estudiante2').style.display = 'none';
+    document.getElementById('id_estudiante3').style.display = 'none';
+    document.getElementById('id_estudiante4').style.display = 'none';
+    document.getElementById('id_estudiante5').style.display = 'none';
+   }
+   if(estudiantes == 2){
+    document.getElementById('id_estudiante2').style.display = 'block';
+    document.getElementById('id_estudiante3').style.display = 'none';
+    document.getElementById('id_estudiante4').style.display = 'none';
+    document.getElementById('id_estudiante5').style.display = 'none';
+   }
+   if(estudiantes == 3){
+    document.getElementById('id_estudiante2').style.display = 'block';
+    document.getElementById('id_estudiante3').style.display = 'block';
+    document.getElementById('id_estudiante4').style.display = 'none';
+    document.getElementById('id_estudiante5').style.display = 'none';
+   }
+   if(estudiantes == 4){
+    document.getElementById('id_estudiante2').style.display = 'block';
+    document.getElementById('id_estudiante3').style.display = 'block';
+    document.getElementById('id_estudiante4').style.display = 'block';
+    document.getElementById('id_estudiante5').style.display = 'none';
+   }
+   if(estudiantes == 5){
+    document.getElementById('id_estudiante2').style.display = 'block';
+    document.getElementById('id_estudiante3').style.display = 'block';
+    document.getElementById('id_estudiante4').style.display = 'block';
+    document.getElementById('id_estudiante5').style.display = 'block';
+   }
+}
+</script>
 @endsection

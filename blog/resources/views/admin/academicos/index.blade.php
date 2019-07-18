@@ -89,7 +89,7 @@
                         </div>
                         &nbsp
                         <div class="form-group">
-                            <button type = "submit" class = "btn btn-default">
+                            <button type = "submit" class = "btn btn-sm btn-primary">
                                 <span class="glyphicon glyphicon-search"></span>
                                Buscar
                             </button>
@@ -124,18 +124,18 @@ Listado de Académicos
                             <td>{{ $academico->apellido_materno }}</td>
                             <td>{{ $academico->rut }}</td>
                             <td width="10px">
-                                <a href="{{ route('academicos.show', $academico->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('academicos.show', $academico->id) }}" class="btn btn-sm btn-primary">
                                     ver
                                 </a>
                             </td>
                             <td width="10px">
-                                <a href="{{ route('academicos.edit', $academico->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('academicos.edit', $academico->id) }}" class="btn btn-sm btn-primary">
                                     editar
                                 </a>
                             </td>
                             <td width="10px">
                                 {!! Form::open(['route' => ['academicos.destroy', $academico->id], 'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">
+                                    <button class="btn btn-sm btn-danger btn-delete ">
                                         Eliminar
                                     </button>
                                 {!! Form::close() !!}
@@ -149,4 +149,5 @@ Listado de Académicos
 </div>
 </div>
 </div>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

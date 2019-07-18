@@ -93,13 +93,12 @@
                         {{ Form::label('id_academico' , 'Profesor guia') }}
                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control','readonly']) }}
                     </div>
-
                     <div class="form-group">
                         {{ Form::label('id_organizacion', 'Tutor Organizacion Externa') }}
                         {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::submit('Autorizar', ['class' => 'btn btn-sm btn-primary'] ) }}
+                        {{ Form::submit('Autorizar', ['class' => 'btn btn-sm btn-primary btn-autorizar'] ) }}
                     </div>
                     {!! Form::close() !!}
                 </div>
@@ -111,4 +110,5 @@
 
 </body>
 </html>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

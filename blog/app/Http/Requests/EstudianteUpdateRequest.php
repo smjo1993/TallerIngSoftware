@@ -30,7 +30,7 @@ class EstudianteUpdateRequest extends FormRequest
             'apellido_materno' => 'required|alpha',
             'fono'             => 'required|integer|Min:100000',
             'email'            => 'required|email',
-            'carreras'         => 'required|array',
+            //'carreras'         => 'required|array',
         ];
     }
 }

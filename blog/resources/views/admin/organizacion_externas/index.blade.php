@@ -103,7 +103,7 @@ Anular Trabajo de Titulacion
                             <td>{{ $trabajo_titulacion->fecha_inicio }}</td>
                             <td>{{ $trabajo_titulacion->fecha_termino }}</td>
                             <td width="10px">
-                                <a href="{{ route('organizacion_externas.show', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('organizacion_externas.show', $trabajo_titulacion->id) }}" class="btn btn-sm btn-primary">
                                     anular
                                 </a>
                             </td>

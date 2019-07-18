@@ -82,12 +82,17 @@
                     {!! Form::model($actividad_titulacion, ['route' => ['actividad_titulacions.update', $actividad_titulacion->id],
                     'method' => 'PUT']) !!}
                     
+
                         @include('admin.actividad_titulacions.partials.form')
 
+                        <div class="form-group">
+                            {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary btn-guardar'] ) }}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

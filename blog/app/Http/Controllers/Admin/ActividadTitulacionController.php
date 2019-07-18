@@ -95,16 +95,17 @@ class ActividadTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(ActividadTitulacionUpdateRequest $request, $id)
+    public function update(Request $request, ActividadTitulacionUpdateRequest $requestUpdate, $id)
     {
+        if($request->ajax()){
         $actividad_titulacion = ActividadTitulacion::find($id);
 
         $actividad_titulacion->fill($request->all())->save();
-
- 
-
-        return redirect()->route('actividad_titulacions.edit', $actividad_titulacion->id)
-        ->with('info', 'Actividad de Titulacion actualizada con exito');
+        //return redirect()->route('actividad_titulacions.edit', $actividad_titulacion->id)
+        //->with('info', 'Actividad de Titulacion actualizada con exito');
+        return response()->json([
+        ]);
+        }
     }
 
     /**
@@ -113,10 +114,14 @@ class ActividadTitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $actividad_titulacion = ActividadTitulacion::find($id)->delete();
-
-        return back()->with('info', 'Eliminada correctamente');
+        if($request->ajax()){
+            $actividad_titulacion = ActividadTitulacion::find($id)->delete();
+            //return back()->with('info', 'Eliminado correctamente');
+            return response()->json([
+                //'message' => $estudiante->nombre . 'fue eliminado exitosamente'
+            ]);
+        }
     }
 }

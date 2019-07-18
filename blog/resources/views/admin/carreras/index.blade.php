@@ -103,7 +103,7 @@ Inscripcion Formal
                             <td>{{ $trabajo_titulacion->fecha_inicio }}</td>
                             <td>{{ $trabajo_titulacion->fecha_termino }}</td>
                             <td width="10px">
-                                <a href="{{ route('carreras.show', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('carreras.show', $trabajo_titulacion->id) }}" class="btn btn-sm btn-primary">
                                     Inscribir
                                 </a>
                             </td>

@@ -96,7 +96,7 @@
                         {{ Form::text('nota', null, ['class' => 'form-control', 'id' => 'nota']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::submit('Guardar Nota', ['class' => 'btn btn-sm btn-primary'] ) }}
+                        {{ Form::submit('Guardar Nota', ['class' => 'btn btn-sm btn-primary btn-finalizar'] ) }}
                     </div>
                     <!--@include('admin.trabajo_titulacions.partials.form')-->
 
@@ -110,4 +110,5 @@
 
 </body>
 </html>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection

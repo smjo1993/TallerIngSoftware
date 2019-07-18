@@ -87,7 +87,9 @@
                     {!! Form::open(['route' => 'actividad_titulacions.store']) !!}
                     
                         @include('admin.actividad_titulacions.partials.form')
-
+                        <div class="form-group">
+                            {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary btn-guardar'] ) }}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>

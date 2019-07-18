@@ -127,7 +127,7 @@ Listado de Trabajos de Titulación
                             <td>{{ $trabajo_titulacion->fecha_termino }}</td>
                             
                             <td width="10px">
-                                <a href="{{ route('trabajo_titulacions.edit', $trabajo_titulacion->id) }}" class="btn btn-sm btn-default">
+                                <a href="{{ route('trabajo_titulacions.edit', $trabajo_titulacion->id) }}" class="btn btn-sm btn-primary">
                                     autorizar
                                 </a>
                             </td>

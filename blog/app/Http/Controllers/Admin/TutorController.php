@@ -94,7 +94,7 @@ class TutorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(TrabajoTitulacionUpdateRequest $request, $id)
+    public function update(Request $request,TrabajoTitulacionUpdateRequest $requestUpdate, $id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
         $estado = 'FINALIZADA';

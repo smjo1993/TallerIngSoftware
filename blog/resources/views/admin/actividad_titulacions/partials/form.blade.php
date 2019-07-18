@@ -20,6 +20,4 @@
     {{ Form::text('cant_estudiante', null, ['class' => 'form-control', 'id' => 'cant_estudiante' ]) }}
 </div>
 
-<div class="form-group">
-    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary'] ) }}
-</div>
+

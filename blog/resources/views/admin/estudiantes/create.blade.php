@@ -89,7 +89,9 @@
                         {{ Form::label('rut', 'Rut estudiante') }}
                         {{ Form::text('rut', null, ['class' => 'form-control', 'id' => 'rut' ]) }}
                         @include('admin.estudiantes.partials.form')
-
+                        <div class="form-group">
+                            {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary btn-guardar'] ) }}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>

@@ -124,12 +124,17 @@
                     
                         {{ Form::label('rut', 'Rut Académico') }}
                         {{ Form::text('rut', null, ['class' => 'form-control', 'id' => 'rut', 'readonly' ]) }}
-                        @include('admin.academicos.partials.form')
 
+
+                        @include('admin.academicos.partials.form')
+                        <div class="form-group">
+                            {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary btn-guardar'] ) }}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection
