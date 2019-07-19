@@ -70,7 +70,7 @@ class EstudianteController extends Controller
                 ->with('info','Rut mal ingresado');
         }
 
-        $estudiante->carreras()->attach($request->get('carreras'));
+        //$estudiante->carreras()->attach($request->get('carreras'));
 
         return redirect()->route('estudiantes.index', $estudiante->id)
         ->with('info', 'Estudiante creado con exito');

@@ -125,26 +125,155 @@
                         {{ Form::label('nombre_tutor', 'Tutor de la organizacion') }}
                         {{ Form::text('nombre_tutor', null, ['class' => 'form-control', 'id' => 'nombre_tutor' ]) }}
                     </div>
-                    <div class="form-group" >
-                        {{ Form::label('id_estudiante' , 'Primer Estudiante') }}
-                        {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control']) }}
+                    <!--primer estudiante-->
+                    <table>
+                    <tr>    
+                    <td>             
+                    <div class="form-group" onchange="Sincronizar1();">
+                        {{ Form::label('rut_estudiante' , 'Rut Alumno') }}
+                        {{ Form::select('rut_estudiante' , $rut_estudiantes, null, ['class' => 'form-control']) }}
                     </div>
+                    </td>
+                    <td>
                     <div class="form-group" >
-                        {{ Form::label('id_estudiante2' , 'Segundo Estudiante') }}
-                        {{ Form::select('id_estudiante2' , $estudiantes, null, ['class' => 'form-control']) }}
+                        {{ Form::label('id_estudiante' , 'Nombre Estudiante') }}
+                        {{ Form::select('id_estudiante' , $estudiantes, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno' , $estudiantes_apellido_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno' , $estudiantes_apellido_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+
+                    <!--segundo estudiante-->
+                    <table>
+                    <tr>    
+                    <td>             
+                    <div class="form-group" onchange="Sincronizar2();">
+                        {{ Form::label('rut_estudiante2' , 'Rut Alumno') }}
+                        {{ Form::select('rut_estudiante2' , $rut_estudiantes, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
                     <div class="form-group" >
-                        {{ Form::label('id_estudiante3' , 'Tercer Estudiante') }}
-                        {{ Form::select('id_estudiante3' , $estudiantes, null, ['class' => 'form-control']) }}
+                        {{ Form::label('id_estudiante2' , 'Nombre Estudiante') }}
+                        {{ Form::select('id_estudiante2' , $estudiantes, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno2' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno2' , $estudiantes_apellido_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno2' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno2' , $estudiantes_apellido_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+
+                    <!--tercer estudiante-->
+                    <table>
+                    <tr>    
+                    <td>             
+                    <div class="form-group" onchange="Sincronizar3();">
+                        {{ Form::label('rut_estudiante3' , 'Rut Alumno') }}
+                        {{ Form::select('rut_estudiante3' , $rut_estudiantes, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
                     <div class="form-group" >
-                        {{ Form::label('id_estudiante4' , 'Cuarto Estudiante') }}
-                        {{ Form::select('id_estudiante4' , $estudiantes, null, ['class' => 'form-control']) }}
+                        {{ Form::label('id_estudiante3' , 'Nombre Estudiante') }}
+                        {{ Form::select('id_estudiante3' , $estudiantes, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno3' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno3' , $estudiantes_apellido_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno3' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno3' , $estudiantes_apellido_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+
+                    <!--cuarto estudiante-->
+                    <table>
+                    <tr>    
+                    <td>             
+                    <div class="form-group" onchange="Sincronizar4();">
+                        {{ Form::label('rut_estudiante4' , 'Rut Alumno') }}
+                        {{ Form::select('rut_estudiante4' , $rut_estudiantes, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
                     <div class="form-group" >
-                        {{ Form::label('id_estudiante5' , 'Quinto Estudiante') }}
-                        {{ Form::select('id_estudiante5' , $estudiantes, null, ['class' => 'form-control']) }}
+                        {{ Form::label('id_estudiante4' , 'Nombre Estudiante') }}
+                        {{ Form::select('id_estudiante4' , $estudiantes, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno4' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno4' , $estudiantes_apellido_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno4' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno4' , $estudiantes_apellido_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+                    <!--quinto estudiante-->
+                    <table>
+                    <tr>    
+                    <td>             
+                    <div class="form-group" onchange="Sincronizar5();">
+                        {{ Form::label('rut_estudiante5' , 'Rut Alumno') }}
+                        {{ Form::select('rut_estudiante5' , $rut_estudiantes, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group" >
+                        {{ Form::label('id_estudiante5' , 'Nombre Estudiante') }}
+                        {{ Form::select('id_estudiante5' , $estudiantes, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno5' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno5' , $estudiantes_apellido_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno5' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno5' , $estudiantes_apellido_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+
                     <div class="form-group">
                         {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary'] ) }}
                     </div>
@@ -186,31 +315,126 @@ function getValue(){
     document.getElementById('id_estudiante3').style.display = 'none';
     document.getElementById('id_estudiante4').style.display = 'none';
     document.getElementById('id_estudiante5').style.display = 'none';
+    document.getElementById('rut_estudiante2').style.display = 'none';
+    document.getElementById('rut_estudiante3').style.display = 'none';
+    document.getElementById('rut_estudiante4').style.display = 'none';
+    document.getElementById('rut_estudiante5').style.display = 'none';
+    document.getElementById('id_apellido_paterno2').style.display = 'none';
+    document.getElementById('id_apellido_paterno3').style.display = 'none';
+    document.getElementById('id_apellido_paterno4').style.display = 'none';
+    document.getElementById('id_apellido_paterno5').style.display = 'none';
+    document.getElementById('id_apellido_materno2').style.display = 'none';
+    document.getElementById('id_apellido_materno3').style.display = 'none';
+    document.getElementById('id_apellido_materno4').style.display = 'none';
+    document.getElementById('id_apellido_materno5').style.display = 'none';
    }
    if(estudiantes == 2){
     document.getElementById('id_estudiante2').style.display = 'block';
     document.getElementById('id_estudiante3').style.display = 'none';
     document.getElementById('id_estudiante4').style.display = 'none';
     document.getElementById('id_estudiante5').style.display = 'none';
+    document.getElementById('rut_estudiante2').style.display = 'block';
+    document.getElementById('rut_estudiante3').style.display = 'none';
+    document.getElementById('rut_estudiante4').style.display = 'none';
+    document.getElementById('rut_estudiante5').style.display = 'none';
+    document.getElementById('id_apellido_paterno2').style.display = 'block';
+    document.getElementById('id_apellido_paterno3').style.display = 'none';
+    document.getElementById('id_apellido_paterno4').style.display = 'none';
+    document.getElementById('id_apellido_paterno5').style.display = 'none';
+    document.getElementById('id_apellido_materno2').style.display = 'block';
+    document.getElementById('id_apellido_materno3').style.display = 'none';
+    document.getElementById('id_apellido_materno4').style.display = 'none';
+    document.getElementById('id_apellido_materno5').style.display = 'none';
    }
    if(estudiantes == 3){
     document.getElementById('id_estudiante2').style.display = 'block';
     document.getElementById('id_estudiante3').style.display = 'block';
     document.getElementById('id_estudiante4').style.display = 'none';
     document.getElementById('id_estudiante5').style.display = 'none';
+    document.getElementById('rut_estudiante2').style.display = 'block';
+    document.getElementById('rut_estudiante3').style.display = 'block';
+    document.getElementById('rut_estudiante4').style.display = 'none';
+    document.getElementById('rut_estudiante5').style.display = 'none';
+    document.getElementById('id_apellido_paterno2').style.display = 'block';
+    document.getElementById('id_apellido_paterno3').style.display = 'block';
+    document.getElementById('id_apellido_paterno4').style.display = 'none';
+    document.getElementById('id_apellido_paterno5').style.display = 'none';
+    document.getElementById('id_apellido_materno2').style.display = 'block';
+    document.getElementById('id_apellido_materno3').style.display = 'block';
+    document.getElementById('id_apellido_materno4').style.display = 'none';
+    document.getElementById('id_apellido_materno5').style.display = 'none';
    }
    if(estudiantes == 4){
     document.getElementById('id_estudiante2').style.display = 'block';
     document.getElementById('id_estudiante3').style.display = 'block';
     document.getElementById('id_estudiante4').style.display = 'block';
     document.getElementById('id_estudiante5').style.display = 'none';
+    document.getElementById('rut_estudiante2').style.display = 'block';
+    document.getElementById('rut_estudiante3').style.display = 'block';
+    document.getElementById('rut_estudiante4').style.display = 'block';
+    document.getElementById('rut_estudiante5').style.display = 'none';
+    document.getElementById('id_apellido_paterno2').style.display = 'block';
+    document.getElementById('id_apellido_paterno3').style.display = 'block';
+    document.getElementById('id_apellido_paterno4').style.display = 'block';
+    document.getElementById('id_apellido_paterno5').style.display = 'none';
+    document.getElementById('id_apellido_materno2').style.display = 'block';
+    document.getElementById('id_apellido_materno3').style.display = 'block';
+    document.getElementById('id_apellido_materno4').style.display = 'block';
+    document.getElementById('id_apellido_materno5').style.display = 'none';
    }
    if(estudiantes == 5){
     document.getElementById('id_estudiante2').style.display = 'block';
     document.getElementById('id_estudiante3').style.display = 'block';
     document.getElementById('id_estudiante4').style.display = 'block';
     document.getElementById('id_estudiante5').style.display = 'block';
+    document.getElementById('rut_estudiante2').style.display = 'block';
+    document.getElementById('rut_estudiante3').style.display = 'block';
+    document.getElementById('rut_estudiante4').style.display = 'block';
+    document.getElementById('rut_estudiante5').style.display = 'block';
+    document.getElementById('id_apellido_paterno2').style.display = 'block';
+    document.getElementById('id_apellido_paterno3').style.display = 'block';
+    document.getElementById('id_apellido_paterno4').style.display = 'block';
+    document.getElementById('id_apellido_paterno5').style.display = 'block';
+    document.getElementById('id_apellido_materno2').style.display = 'block';
+    document.getElementById('id_apellido_materno3').style.display = 'block';
+    document.getElementById('id_apellido_materno4').style.display = 'block';
+    document.getElementById('id_apellido_materno5').style.display = 'block';
    }
+}
+function Sincronizar1(){
+   var value =  document.getElementById("rut_estudiante").value;
+   var selected = rut_estudiante.options[rut_estudiante.selectedIndex].text;
+   document.getElementById("id_estudiante").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno").selectedIndex = value-1;
+}
+function Sincronizar2(){
+   var value =  document.getElementById("rut_estudiante2").value;
+   var selected = rut_estudiante2.options[rut_estudiante2.selectedIndex].text;
+   document.getElementById("id_estudiante2").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno2").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno2").selectedIndex = value-1;
+}
+function Sincronizar3(){
+   var value =  document.getElementById("rut_estudiante3").value;
+   var selected = rut_estudiante3.options[rut_estudiante3.selectedIndex].text;
+   document.getElementById("id_estudiante3").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno3").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno3").selectedIndex = value-1;
+}
+function Sincronizar4(){
+   var value =  document.getElementById("rut_estudiante4").value;
+   var selected = rut_estudiante4.options[rut_estudiante4.selectedIndex].text;
+   document.getElementById("id_estudiante4").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno4").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno4").selectedIndex = value-1;
+}
+function Sincronizar5(){
+   var value =  document.getElementById("rut_estudiante5").value;
+   var selected = rut_estudiante5.options[rut_estudiante5.selectedIndex].text;
+   document.getElementById("id_estudiante5").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno5").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno5").selectedIndex = value-1;
 }
 </script>
 @endsection

@@ -93,10 +93,100 @@
                         {{ Form::label('id_academico' , 'Profesor guia') }}
                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    <!--
                     <div class="form-group">
                         {{ Form::label('id_organizacion', 'Tutor Organizacion Externa') }}
                         {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    --> 
+                    &nbsp
+                    <!--primera corrida-->
+                    <table>
+                    <tr>    
+                    <td>             
+                    <div class="form-group" onchange="getValue();">
+                        {{ Form::label('rut_academico1' , 'Rut Profesor') }}
+                        {{ Form::select('rut_academico1' , $academicos_rut, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_academico1' , 'Profesor Corrector') }}
+                        {{ Form::select('id_academico1' , $academicos, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno1' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno1' , $academicos_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno1' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno1' , $academicos_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+                    <!--segunda corrida-->
+                    <table>
+                    <tr>    
+                    <td> 
+                    <div class="form-group" onchange="getValue2();">
+                        {{ Form::label('rut_academico2' , 'Rut Profesor') }}
+                        {{ Form::select('rut_academico2' , $academicos_rut, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_academico2' , 'Profesor Corrector') }}
+                        {{ Form::select('id_academico2' , $academicos, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno2' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno2' , $academicos_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno2' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno2' , $academicos_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+                    <!--tercera corrida-->
+                    <table>
+                    <tr>    
+                    <td> 
+                    <div class="form-group" onchange="getValue3();">
+                        {{ Form::label('rut_academico3' , 'Rut Profesor') }}
+                        {{ Form::select('rut_academico3' , $academicos_rut, null, ['class' => 'form-control']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_academico3' , 'Profesor Corrector') }}
+                        {{ Form::select('id_academico3' , $academicos, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_paterno3' , 'Apellido Paterno ') }}
+                        {{ Form::select('id_apellido_paterno3' , $academicos_paterno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    <td>
+                    <div class="form-group">
+                        {{ Form::label('id_apellido_materno3' , 'Apellido Materno ') }}
+                        {{ Form::select('id_apellido_materno3' , $academicos_materno, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
                     <div class="form-group">
                         {{ Form::submit('Autorizar', ['class' => 'btn btn-sm btn-primary btn-autorizar'] ) }}
                     </div>
@@ -111,4 +201,27 @@
 </body>
 </html>
 <script src="{{ asset('js/script.js') }}"></script>
+<script>
+function getValue(){
+   var value =  document.getElementById("rut_academico1").value;
+   var selected = rut_academico1.options[rut_academico1.selectedIndex].text;
+   document.getElementById("id_academico1").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno1").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno1").selectedIndex = value-1;
+}
+function getValue2(){
+   var value =  document.getElementById("rut_academico2").value;
+   var selected = rut_academico2.options[rut_academico2.selectedIndex].text;
+   document.getElementById("id_academico2").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno2").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno2").selectedIndex = value-1;
+}
+function getValue3(){
+   var value =  document.getElementById("rut_academico3").value;
+   var selected = rut_academico3.options[rut_academico3.selectedIndex].text;
+   document.getElementById("id_academico3").selectedIndex = value-1;
+   document.getElementById("id_apellido_paterno3").selectedIndex = value-1;
+   document.getElementById("id_apellido_materno3").selectedIndex = value-1;
+}
+</script>
 @endsection

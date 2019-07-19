@@ -22,7 +22,7 @@ class Academico extends Model
         {
             if($nombre){
             
-                return $query->where('nombre', 'LIKE', "%$nombre%");
+                return $query->where('nombre', 'LIKE', "%$nombre");
             }
         }
     
@@ -30,7 +30,7 @@ class Academico extends Model
         {
             if($rut){
             
-                return $query->where('rut', 'LIKE', "%$rut%");
+                return $query->where('rut', 'LIKE', "%$rut");
             }
         }
 }

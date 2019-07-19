@@ -7,17 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Estudiante extends Model
 {
     protected $fillable = [
-        'rut',  'nombre', 'apellido_paterno', 'apellido_materno', 'fono', 'email'
+        'rut',  'nombre','carrera_id', 'apellido_paterno', 'apellido_materno', 'fono', 'email'
     ];
 
     public function trabajos()
     {
         return $this->belongsToMany(TrabajoTitulacion::class);
-    }
-
-    public function carreras()
-    {
-        return $this->belongsToMany(Carrera::class);
     }
 
     //Scope
@@ -26,7 +21,7 @@ class Estudiante extends Model
     {
         if($nombre){
         
-            return $query->where('nombre', 'LIKE', "%$nombre%");
+            return $query->where('nombre', 'LIKE', "%$nombre");
         }
     }
 
@@ -34,7 +29,7 @@ class Estudiante extends Model
     {
         if($rut){
         
-            return $query->where('rut', 'LIKE', "%$rut%");
+            return $query->where('rut', 'LIKE', "%$rut");
         }
     }
 }

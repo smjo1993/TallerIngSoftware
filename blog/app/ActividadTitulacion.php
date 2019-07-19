@@ -15,7 +15,7 @@ class ActividadTitulacion extends Model
     {
         if($nombre){
         
-            return $query->where('nombre', 'LIKE', "%$nombre%");
+            return $query->where('nombre', 'LIKE', "%$nombre");
         }
     }
 
@@ -23,7 +23,7 @@ class ActividadTitulacion extends Model
     {
         if($id){
         
-            return $query->where('id', 'LIKE', "%$id%");
+            return $query->where('id', 'LIKE', "%$id");
         }
     }
 
