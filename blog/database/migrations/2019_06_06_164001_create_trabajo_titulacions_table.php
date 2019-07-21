@@ -23,7 +23,7 @@ class CreateTrabajoTitulacionsTable extends Migration
             $table->integer('id_actividad')->unsigned();
             $table->integer('id_organizacion')->unsigned()->nullable();
             $table->integer('id_academico')->unsigned();
-            $table->double('nota')->unsigned()->nullable();
+            $table->float('nota')->unsigned()->nullable();
             $table->integer('semestre')->unsigned()->nullable();
             $table->integer('numero')->unsigned()->nullable();
             $table->timestamps();

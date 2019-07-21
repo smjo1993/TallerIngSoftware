@@ -2,7 +2,7 @@
 <tr>    
 <td>  
 <div class="form-group">
-    {{ Form::label('nombre', 'Nombre del estudiante') }}
+    {{ Form::label('nombre', 'Nombre del Estudiante') }}
     {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre' ]) }}
 </div>
 </td>
@@ -21,7 +21,7 @@
 </tr>
 </table>
 <div class="form-group">
-    {{ Form::label('fono', 'Telefono') }}
+    {{ Form::label('fono', 'Teléfono') }}
     {{ Form::text('fono', null, ['class' => 'form-control', 'id' => 'fono' ]) }}
 </div>
 <div class="form-group">
@@ -29,7 +29,7 @@
     {{ Form::select('carrera_id' , $carreras, null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
-    {{ Form::label('email', 'Email estudiante') }}
+    {{ Form::label('email', 'Email Estudiante') }}
     {{ Form::text('email', null, ['class' => 'form-control', 'id' => 'email' ]) }}
 </div>
 
