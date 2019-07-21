@@ -90,11 +90,16 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.btn-finalizar').click(function (e) {
         e.preventDefault();
+        var nota =  document.getElementById("nota").value;
+        if(nota < 1 || nota > 7){
+            alert("nota invalida");
+             window.location.href = "http://localhost/blog/public/tutors";
+        }else{
         if(! confirm("Desea guardar cambios?")){
             return false;
         }
-        
         alert("inscripcion de nota exitosa");
+    }   
         var row = $(this).parents('tr');
         var form = $(this).parents('form');
         var url = form.attr('action'); 

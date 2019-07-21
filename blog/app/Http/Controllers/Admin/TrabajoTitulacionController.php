@@ -87,7 +87,7 @@ class TrabajoTitulacionController extends Controller
             $nombre_tutor = $request->get('nombre_tutor');
 
             //se crea la nueva organizacion
-            if($nombre_organizacion && $nombre_tutor){
+            if($nombre_organizacion != null && $nombre_tutor != null){
 
                 $organizacion = DB::table('organizacion_externas')->insert(array(
                     'nombre' => $nombre_organizacion,

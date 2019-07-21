@@ -99,6 +99,9 @@ class TutorController extends Controller
         $trabajo_titulacion = TrabajoTitulacion::find($id);
 
         $nota = $request->get('nota');
+
+        if( $nota < 1 ||  $nota > 7){
+        }else{
     
         $trabajo_titulacion->fill($request->all())->save();
         $estado = 'FINALIZADA';
@@ -117,8 +120,8 @@ class TutorController extends Controller
         ->where('estado','ACEPTADA')
         ->paginate(10);
         return view('admin.tutors.index', compact('trabajo_titulacions'));
+        }
     }
-
     /**
      * Remove the specified resource from storage.
      *
