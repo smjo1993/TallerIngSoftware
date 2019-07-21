@@ -62,6 +62,9 @@ class CarreraController extends Controller
     public function show($id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
+        $profesor_guia = Academico::find($trabajo_titulacion->id_academico);
+        $actividad = ActividadTitulacion::find($trabajo_titulacion->id_actividad);
+        $organizacion = OrganizacionExterna::find($trabajo_titulacion->id_organizacion);
         $actividad_titulacions = ActividadTitulacion::orderBy('nombre', 'ASC')
         ->pluck('nombre', 'id','comision','cant_estudiante');
 
@@ -73,7 +76,7 @@ class CarreraController extends Controller
 
         $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
         ->pluck('nombre','id');
-        return view('admin.carreras.show', compact('trabajo_titulacion','actividad_titulacions','academicos','estudiantes','organizaciones'));
+        return view('admin.carreras.show', compact('organizacion','actividad','profesor_guia','trabajo_titulacion','actividad_titulacions','academicos','estudiantes','organizaciones'));
     }
 
     /**

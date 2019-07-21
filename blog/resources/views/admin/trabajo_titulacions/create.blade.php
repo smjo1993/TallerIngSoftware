@@ -106,6 +106,10 @@
                         {{ Form::label('id_actividad3' , 'Estudiantes') }}
                         {{ Form::select('id_actividad3' , $actividad_titulacions3, null, ['class' => 'form-control']) }}
                     </div>
+                    <div class="form-group" style="display:none">
+                        {{ Form::label('id_organizacion' , 'Estudiaorganizacionntes') }}
+                        {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control']) }}
+                    </div>
                     <div class="form-group">
                         {{ Form::label('id_academico' , 'Profesor Guía') }}
                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control']) }}
@@ -126,6 +130,7 @@
                         {{ Form::label('nombre_tutor', 'Tutor de la Organización') }}
                         {{ Form::text('nombre_tutor', null, ['class' => 'form-control', 'id' => 'nombre_tutor' ]) }}
                     </div>
+
                     <!--primer estudiante-->
                     <table>
                     <tr>    

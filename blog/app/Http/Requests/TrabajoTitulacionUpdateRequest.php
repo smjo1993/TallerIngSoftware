@@ -29,7 +29,7 @@ class TrabajoTitulacionUpdateRequest extends FormRequest
             //'duracion' => 'required|integer|Min:1',
             //'comision' => 'required|in:SI,NO',
             //'cant_estudiante'             => 'required|integer|Min:1',
-            'nota'   => 'integer|Min:1|Max:7',
+            //'nota'   => 'integer|Min:1|Max:7',
             'numero'   => 'integer|Min:1',
         ];
     }

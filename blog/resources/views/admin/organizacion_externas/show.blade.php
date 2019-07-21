@@ -88,18 +88,29 @@
                 <div class="panel-body">
                     {!! Form::model($trabajo_titulacion, ['route' => ['organizacion_externas.update', $trabajo_titulacion->id],
                     'method' => 'PUT']) !!}
-                    
-                    <div class="form-group">
-                        {{ Form::label('nombre', 'Titulo Trabajo Titulación') }}
+                    <div class="form-group"style="display:none">
+                        {{ Form::label('nombre' , 'Nombre') }}
                         {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'readonly']) }}
                     </div>
                     <div class="form-group">
+                        <p><strong>Titulo Trabajo Titulación:</strong></p>
+                        <p>{{ $trabajo_titulacion->nombre }}</p>
+                    </div>
+                    <div class="form-group"style="display:none">
                         {{ Form::label('fecha_inicio' , 'Fecha de Inicio de la Actividad') }}
                         {{ Form::text('fecha_inicio', null, ['class' => 'form-control', 'id' => 'fecha_inicio', 'readonly']) }}
                     </div>
                     <div class="form-group">
+                        <p><strong>Titulo Trabajo Titulación:</strong></p>
+                        <p>{{ $trabajo_titulacion->fecha_inicio }}</p>
+                    </div>
+                    <div class="form-group"style="display:none">
                         {{ Form::label('fecha_termino' , 'Fecha de Termino de la Actividad') }}
                         {{ Form::text('fecha_termino', null, ['class' => 'form-control', 'id' => 'fecha_termino', 'readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        <p><strong>Titulo Trabajo Titulación:</strong></p>
+                        <p>{{ $trabajo_titulacion->fecha_termino }}</p>
                     </div>
                     <div class="form-group">
                     <br>

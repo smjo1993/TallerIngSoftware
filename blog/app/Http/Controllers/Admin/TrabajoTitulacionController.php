@@ -63,7 +63,9 @@ class TrabajoTitulacionController extends Controller
         $estudiantes_apellido_materno = Estudiante::orderBy('id','ASC')
         ->pluck('apellido_materno', 'id',);
 
-        return view('admin.trabajo_titulacions.create', compact('rut_estudiantes','estudiantes_apellido_paterno','estudiantes_apellido_materno','actividad_titulacions','actividad_titulacions2','actividad_titulacions3','academicos','estudiantes'));
+        $organizaciones = OrganizacionExterna::orderBy('id','DESC')
+        ->pluck('id','id');
+        return view('admin.trabajo_titulacions.create', compact('organizaciones','rut_estudiantes','estudiantes_apellido_paterno','estudiantes_apellido_materno','actividad_titulacions','actividad_titulacions2','actividad_titulacions3','academicos','estudiantes'));
     }
 
     /**
@@ -86,12 +88,16 @@ class TrabajoTitulacionController extends Controller
 
             //se crea la nueva organizacion
             if($nombre_organizacion && $nombre_tutor){
-                DB::table('organizacion_externas')->insert([
-                    'nombre'=>$nombre_organizacion,
-                    'nombre_tutor'=>$nombre_tutor
-                ]);
-                //aca se deberia agregar la organizacion externa;
-                
+
+                $organizacion = DB::table('organizacion_externas')->insert(array(
+                    'nombre' => $nombre_organizacion,
+                    'nombre_tutor' => $nombre_tutor,
+                ));
+                $id_organizacion = $request->get('id_organizacion');
+                $id_organizacion2 = $id_organizacion+1;
+                $trabajo->id_organizacion = $id_organizacion2;
+                $trabajo->save();
+
             }
             //estudiante1
             $primer_estudiante = $request->get('id_estudiante');
@@ -167,6 +173,8 @@ class TrabajoTitulacionController extends Controller
         $trabajo_titulacion = TrabajoTitulacion::find($id);
         $id_actividad = $trabajo_titulacion->id_actividad;
         $actividad_titulacion = ActividadTitulacion::find($id_actividad);
+        $academico = Academico::find($trabajo_titulacion->id_academico);
+        $organizacion = OrganizacionExterna::find($trabajo_titulacion->id_organizacion);
         
         $academicos = Academico::orderBy('id', 'ASC')
         ->pluck('nombre','id');
@@ -181,7 +189,7 @@ class TrabajoTitulacionController extends Controller
 
         $organizaciones = OrganizacionExterna::orderBy('nombre','ASC')
         ->pluck('nombre_tutor','id');
-        return view('admin.trabajo_titulacions.edit', compact('academicos_paterno','academicos_materno','academicos_rut','trabajo_titulacion','actividad_titulacion','academicos','estudiantes','organizaciones'));
+        return view('admin.trabajo_titulacions.edit', compact('organizacion','academico','academicos_paterno','academicos_materno','academicos_rut','trabajo_titulacion','actividad_titulacion','academicos','estudiantes','organizaciones'));
     }
 
     public function datos(){
@@ -199,6 +207,7 @@ class TrabajoTitulacionController extends Controller
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
         $id_trabajo = $trabajo_titulacion->id;
+        //$actividad_titulacion = ActividadTitulacion::find($id_actividad);
 
         $primer_profesor = $request->get('id_academico');
         
@@ -213,14 +222,14 @@ class TrabajoTitulacionController extends Controller
                 'academico_id'=>$segundo_profesor,
                 'trabajo_titulacion_id'=>$id_trabajo
             ]);
-       if($trabajo_titulacion->id_actividad==1 || $trabajo_titulacion->id_actividad==2){
+
             $tercer_profesor = $request->get('id_academico2');
-        
+        if($tercer_profesor){
             DB::table('academico_trabajo_titulacion')->insert([
                 'academico_id'=>$tercer_profesor,
                 'trabajo_titulacion_id'=>$id_trabajo
             ]); 
-            }
+        }
         
 
         $estado = 'ACEPTADA';

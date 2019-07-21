@@ -85,19 +85,21 @@
                 {!! Form::model($trabajo_titulacion, ['route' => ['trabajo_titulacions.update', $trabajo_titulacion->id],
                     'method' => 'PUT']) !!}
                     <div class="form-group">
+                        <p><strong>Titulo Trabajo Titulación:</strong></p>
+                        <p>{{ $trabajo_titulacion->nombre }} </p>
+                    </div>
+                    <div class="form-group"  style="display:none">
                         {{ Form::label('nombre', 'Titulo Trabajo Titulación') }}
                         {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre' ,'readonly']) }}
                     </div>
                     <div class="form-group">
+                        <p><strong>Profesor Guía:</strong></p>
+                        <p>{{ $academico->nombre }} {{ $academico->apellido_paterno }} {{ $academico->apellido_materno }}</p>
+                    </div>
+                    <div class="form-group" style="display:none">
                         {{ Form::label('id_academico' , 'Profesor Guía') }}
                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control','readonly']) }}
                     </div>
-                    <!--
-                    <div class="form-group">
-                        {{ Form::label('id_organizacion', 'Tutor Organizacion Externa') }}
-                        {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
-                    </div>
-                    --> 
                     &nbsp
                     <!--primera corrida-->
                     <table>
@@ -160,9 +162,13 @@
                     </table>
                     @endif
                     @if($actividad_titulacion->comision=="SI")
-                    <div class="form-group">
+                    <div class="form-group"style="display:none">
                         {{ Form::label('id_organizacion', 'Tutor Organizacion Externa') }}
                         {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
+                    </div>
+                    <div class="form-group">
+                        <p><strong>Tutor Organizacion Externa:</strong></p>
+                        <p>{{ $organizacion->nombre_tutor }} </p>
                     </div>
                     @endif
                     <br>

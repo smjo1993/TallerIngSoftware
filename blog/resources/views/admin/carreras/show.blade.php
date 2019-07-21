@@ -88,29 +88,51 @@
                     {!! Form::model($trabajo_titulacion, ['route' => ['carreras.update', $trabajo_titulacion->id],
                     'method' => 'PUT']) !!}
                     
-                    <div class="form-group">
+                    <div class="form-group" style="display:none">
                         {{ Form::label('nombre', 'Título Trabajo Titulación') }}
                         {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'readonly']) }}
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
+                        <p><strong>Titulo Trabajo Titulación:</strong></p>
+                        <p>{{ $trabajo_titulacion->nombre }} </p>
+                    </div>
+                    <div class="form-group" style="display:none">
                         {{ Form::label('id_academico' , 'Profesor Guía') }}
                         {{ Form::select('id_academico' , $academicos, null, ['class' => 'form-control','readonly']) }}
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
+                        <p><strong>Profesor Guia:</strong></p>
+                        <p>{{ $profesor_guia->nombre }} {{ $profesor_guia->apellido_paterno }} {{ $profesor_guia->apellido_materno }} </p>
+                    </div>
+                    @if($actividad->comision=="SI")
+                    <div class="form-group"style="display:none">
                         {{ Form::label('id_organizacion', 'Tutor Organización Externa') }}
                         {{ Form::select('id_organizacion' , $organizaciones, null, ['class' => 'form-control','readonly']) }}
                     </div>
+                    <div class="form-group" >
+                        <p><strong>Tutor Organización Externa:</strong></p>
+                        <p>{{ $organizacion->nombre_tutor }} </p>
+                    </div>
+                    @endif
                     <div class="form-group">
                         {{ Form::label('numero', 'Numero de Inscripción') }}
                         {{ Form::text('numero', null, ['class' => 'form-control', 'id' => 'numero' ]) }}
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"style="display:none">
                         {{ Form::label('fecha_inicio' , 'Fecha de inicio de la Actividad') }}
                         {{ Form::text('fecha_inicio', null, ['class' => 'form-control', 'id' => 'fecha_inicio']) }}
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
+                        <p><strong>Fecha de inicio de la Actividad:</strong></p>
+                        <p>{{ $trabajo_titulacion->fecha_inicio }} </p>
+                    </div>
+                    <div class="form-group"style="display:none">
                         {{ Form::label('fecha_termino' , 'Fecha de termino de la Actividad') }}
                         {{ Form::text('fecha_termino', null, ['class' => 'form-control', 'id' => 'fecha_termino', 'readonly']) }}
+                    </div>
+                    <div class="form-group" >
+                        <p><strong>Fecha de termino de la Actividad:</strong></p>
+                        <p>{{ $trabajo_titulacion->fecha_termino }} </p>
                     </div>
                     <br>
                     <br>

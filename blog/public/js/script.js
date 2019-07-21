@@ -66,8 +66,6 @@ $(document).ready(function(){
 //INSCRIPCION FORMAL
 $(document).ready(function(){
     $('.btn-inscribir').click(function (e) {
-        var value =  document.getElementById("numero").value;
-        console.log(value);
         e.preventDefault();
         if(! confirm("Esta seguro que desea inscribir este trabajo de titulo?")){
             return false;

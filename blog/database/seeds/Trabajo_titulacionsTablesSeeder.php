@@ -30,6 +30,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'INGRESADA',
             'id_actividad' => '1',
             'id_academico' => '1',
+            'id_organizacion' => '2',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '2',
@@ -39,6 +40,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'INGRESADA',
             'id_actividad' => '2',
             'id_academico' => '2',
+            'id_organizacion' => '5',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '4',
@@ -48,6 +50,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'INGRESADA',
             'id_actividad' => '1',
             'id_academico' => '3',
+            'id_organizacion' => '3',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '5',
@@ -57,6 +60,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'ACEPTADA',
             'id_actividad' => '3',
             'id_academico' => '3',
+            'id_organizacion' => '4',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '6',
@@ -66,6 +70,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'INGRESADA',
             'id_actividad' => '1',
             'id_academico' => '6',
+            'id_organizacion' => '2',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '7',
@@ -75,6 +80,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'ACEPTADA',
             'id_actividad' => '1',
             'id_academico' => '2',
+            'id_organizacion' => '1',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '8',
@@ -84,6 +90,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'INGRESADA',
             'id_actividad' => '1',
             'id_academico' => '1',
+            'id_organizacion' => '5',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '9',
@@ -93,6 +100,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'INGRESADA',
             'id_actividad' => '2',
             'id_academico' => '2',
+            'id_organizacion' => '4',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '10',
@@ -102,6 +110,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'ACEPTADA',
             'id_actividad' => '1',
             'id_academico' => '2',
+            'id_organizacion' => '2',
         ]);
         App\TrabajoTitulacion::create([
             'id' => '11',
@@ -111,6 +120,7 @@ class Trabajo_titulacionsTablesSeeder extends Seeder
             'estado' => 'ACEPTADA',
             'id_actividad' => '2',
             'id_academico' => '1',
+            'id_organizacion' => '1',
         ]);
     }
 }

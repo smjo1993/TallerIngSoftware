@@ -20,22 +20,22 @@ class Organizacion_externasTablesSeeder extends Seeder
         App\OrganizacionExterna::create([
             'id' => '2',
             'nombre' => 'DICOA',
-            'nombre_tutor' => 'Jorge Pizarro',
+            'nombre_tutor' => 'Michael Jefferson',
         ]);
         App\OrganizacionExterna::create([
             'id' => '3',
             'nombre' => 'Aguas Antofagasta',
-            'nombre_tutor' => 'Jorge Pizarro',
+            'nombre_tutor' => 'Sebastian Escobar',
         ]);
         App\OrganizacionExterna::create([
             'id' => '4',
             'nombre' => 'DISC',
-            'nombre_tutor' => 'Jorge Pizarro',
+            'nombre_tutor' => 'Diego Maradona',
         ]);
         App\OrganizacionExterna::create([
             'id' => '5',
             'nombre' => 'Minera Escondida',
-            'nombre_tutor' => 'Jorge Pizarro',
+            'nombre_tutor' => 'Tutor Pro',
         ]);
     }
 }
