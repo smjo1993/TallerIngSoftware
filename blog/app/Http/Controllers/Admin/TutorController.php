@@ -97,14 +97,16 @@ class TutorController extends Controller
     public function update(Request $request,TrabajoTitulacionUpdateRequest $requestUpdate, $id)
     {
         $trabajo_titulacion = TrabajoTitulacion::find($id);
+
+        $nota = $request->get('nota');
+    
+        $trabajo_titulacion->fill($request->all())->save();
         $estado = 'FINALIZADA';
         $trabajo_titulacion->estado = $estado;
         $trabajo_titulacion->save();
-        $nota = $request->get('nota');
-        $casts = [
-            $nota => 'double',
-        ];
-        $trabajo_titulacion->nota = $casts;
+      
+    
+
         $trabajo_titulacion->save();    
         $fecha_examen_titulo = $request->get('fecha_examen_titulo');
         $trabajo_titulacion->fecha_examen_titulo = $fecha_examen_titulo;
