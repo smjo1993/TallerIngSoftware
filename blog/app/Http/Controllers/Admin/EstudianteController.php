@@ -65,7 +65,7 @@ class EstudianteController extends Controller
 
         if($this->check($rut_verificar)==false){
             //Si el rut que acaba de ingresar el usuario es invalido, entonces destruimos el titulado que creamos arriba.
-            $this->destroy($estudiante->id);
+            $this->delete($estudiante->id);
             return redirect()->route('estudiantes.create')
                 ->with('info','Rut mal ingresado');
         }
@@ -140,9 +140,14 @@ class EstudianteController extends Controller
             return response()->json([
                 //'message' => $estudiante->nombre . 'fue eliminado exitosamente'
             ]);
+        }else{
+            $estudiante = Estudiante::find($id)->delete();
         }
     }
-
+    public function delete($id)
+    {
+            $estudiante = Estudiante::find($id)->delete();
+    }
 
 
 

@@ -66,7 +66,7 @@ class AcademicoController extends Controller
 
         if($this->check($rut_verificar)==false){
             //Si el rut que acaba de ingresar el usuario es invalido, entonces destruimos el titulado que creamos arriba.
-            $this->destroy($academico->id);
+            $this->delete($academico->id);
             return redirect()->route('academicos.create')
                 ->with('info','Rut mal ingresado');
         }
@@ -138,6 +138,11 @@ class AcademicoController extends Controller
                 //'message' => $estudiante->nombre . 'fue eliminado exitosamente'
             ]);
         }
+    }
+
+    public function delete($id)
+    {
+            $academico = Academico::find($id)->delete();
     }
 
     public function check($rut) {

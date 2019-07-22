@@ -105,7 +105,7 @@
                     <table>
                     <tr>    
                     <td>             
-                    <div class="form-group" onchange="getValue();">
+                    <div class="form-group" onchange="Metodo1();">
                         {{ Form::label('rut_academico1' , 'Rut Profesor') }}
                         {{ Form::select('rut_academico1' , $academicos_rut, null, ['class' => 'form-control']) }}
                     </div>
@@ -135,7 +135,7 @@
                     <table>
                     <tr>    
                     <td> 
-                    <div class="form-group" onchange="getValue2();">
+                    <div class="form-group" onchange="Metodo2();">
                         {{ Form::label('rut_academico2' , 'Rut Profesor') }}
                         {{ Form::select('rut_academico2' , $academicos_rut, null, ['class' => 'form-control']) }}
                     </div>
@@ -188,26 +188,19 @@
 </html>
 <script src="{{ asset('js/script.js') }}"></script>
 <script>
-function getValue(){
-   var value =  document.getElementById("rut_academico1").value;
-   var selected = rut_academico1.options[rut_academico1.selectedIndex].text;
-   document.getElementById("id_academico1").selectedIndex = value-1;
-   document.getElementById("id_apellido_paterno1").selectedIndex = value-1;
-   document.getElementById("id_apellido_materno1").selectedIndex = value-1;
-}
-function getValue2(){
-   var value =  document.getElementById("rut_academico2").value;
-   var selected = rut_academico2.options[rut_academico2.selectedIndex].text;
-   document.getElementById("id_academico2").selectedIndex = value-1;
-   document.getElementById("id_apellido_paterno2").selectedIndex = value-1;
-   document.getElementById("id_apellido_materno2").selectedIndex = value-1;
-}
-function getValue3(){
-   var value =  document.getElementById("rut_academico3").value;
-   var selected = rut_academico3.options[rut_academico3.selectedIndex].text;
-   document.getElementById("id_academico3").selectedIndex = value-1;
-   document.getElementById("id_apellido_paterno3").selectedIndex = value-1;
-   document.getElementById("id_apellido_materno3").selectedIndex = value-1;
-}
+function Metodo1(){
+    var value =  document.getElementById("rut_academico1").value;
+    var selected = rut_academico1.options[rut_academico1.selectedIndex].text;
+    document.getElementById("id_academico1").selectedIndex = value-1;
+    document.getElementById("id_apellido_paterno1").selectedIndex = value-1;
+    document.getElementById("id_apellido_materno1").selectedIndex = value-1;
+ }
+ function Metodo2(){
+    var value =  document.getElementById("rut_academico2").value;
+    var selected = rut_academico2.options[rut_academico2.selectedIndex].text;
+    document.getElementById("id_academico2").selectedIndex = value-1;
+    document.getElementById("id_apellido_paterno2").selectedIndex = value-1;
+    document.getElementById("id_apellido_materno2").selectedIndex = value-1;
+ }
 </script>
 @endsection
